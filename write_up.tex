@@ -1,0 +1,134 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+\usepackage{graphicx} 
+\usepackage{subfigure}
+\usepackage{paralist}
+\usepackage[]{algorithm2e}
+\usepackage{hyperref}
+\usepackage{comment} %for anonymized version everything removed for anonymization is in \excludecomment{}
+
+
+\usepackage{url}
+\usepackage{booktabs}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+
+\usepackage[draft,nomargin,footnote]{fixme}
+
+\graphicspath{{figs/}}
+
+\usepackage{xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\etc}{\textit{etc.}\xspace}
+\newcommand{\vs}{\textit{vs.}\xspace}
+
+\begin{document}
+
+
+\title{Mutual Modelling in Educational Child-Robot Interaction}
+
+
+%\author{\# \# \#}
+\author{Alexis Jacq$^{1,2}$\\
+$^1$CHILI Lab, \'Ecole Polytechnique F\'ed\'erale de Lausanne, Switzerland,\\
+$^2$GAIPS, Instituto Superior T\'{e}cnico, University of Lisbon, Portugal}
+
+
+
+
+\maketitle
+\begin{abstract}
+In any constructive social interaction, agents must be able to understand each other. This mutual understanding requires the ability to establish a mental model of the other, called Mutual Modelling. My PhD is focused on Mutual Modelling in robotics: How robots can model other agents within social activities ? Such models must be dynamic in order to keep track of shared knowledge, and adaptive in order to deal with specific behaviours of agents. 
+This work is directly applied to the Cowriter Project, that aims at exploring how a robot can help children with the acquisition of handwriting (http://chili.epfl.ch/cowriter). Does Mutual Modelling in robots would actually improve educative Human-Robot Interactions ?
+\end{abstract}
+
+\section{Introduction}
+\subsection{Mutual Modelling in Robotics}
+
+When we grow up, we construct our knowledge through interaction. At the beginning with parents to learn language and basics of etiquette. Then we learn about culture, science and social behaviours at school with teachers, at work with colleagues or from family and friends. To make possible such a social learning, both learners and teachers need to model each others: a teacher has to be aware of understood knowledge of his student, and a learner has to understand the explanations of his teacher.
+
+In Psychology, the Theory of Mind [] describes the ability to attribute mental states and knowledge to others. In interaction, humans are permanently collecting and analysing huge quantity of information to stay aware of emotions, goals and understandings of their fellows.   
+
+\subsection{The CoWriter project}
+Children facing difficulties in handwriting integration are more exposed
+to troubles during the acquisition of other disciplines as they grow up
+\cite{Christensen2005}. 
+The CoWriter activity introduces a new approach to help those children
+\cite{Hood}. While common successful interventions involve children
+in long intervention (at least 10 weeks) focused on \emph{motor} skills \cite{Hoy2011},
+CoWriter is based on \emph{learning by teaching} paradigm and aims to repair
+self-confidence and motivation of the child rather than his handwriting performance alone.
+
+\emph{Learning by teaching} is a technique that engages students to conduct the activity in the role of the teachers in order to support their learning process. This 
+paradigm is known to produce motivational, meta-cognitive and educational
+benefits in a range of disciplines~\cite{Rohrbeck2003}. The CoWriter project
+is the first application of learning by teaching approach to handwriting. 
+
+The effectiveness of our learning by teaching activity is build on the
+``prot\'eg\'e effect'': the teacher feels responsible for his student, commits
+to the student's success and possibly experiences student's failure as his own
+failure to teach. Teachable computer-based agents have previously been used to
+encourage this ``prot\'eg\'e effect'', where students invest more effort into
+learning when it is for the benefit of a teachable agent than for themselves~\cite{Chase2009}.
+We rely on this cognitive mechanism to reinforce the child's commitment into the
+robot-mediated handwriting activity.
+
+In this study, we assume that the key of such a relationship between the child
+and the robot relies on the credibility of the robot:
+The more the robot convinces the child that it is a beginner in
+handwriting who needs help -- building the ``prot\'eg\'e effect''-- the better
+the child will engage in the interaction. Two important technical aspects of
+credibility are: how to generate the initial state of the robot, and how to design its
+learning behavior. In our previous work~\cite{hood2015when}, we used a limited approach in which
+letters had to be written as a single stroke (no pen lifting) and that covered
+typical mistakes of adults extracted from an handwritten letters database. Experiments with CoWriter were conducted in school, involving either group of
+children doing the activity together or children
+in short individual sessions.
+
+These studies have been conducted to evaluate the feasibility and technical soundness
+of the interaction system. Because of the group effect and the briefness of
+interactions, no conclusions were reached about any positive effect of the
+interaction. Subject children where randomly chosen in school
+classes and had no specific difficulties in handwriting. This made it
+impossible to observe any remediation of self-esteem or motivation.
+
+In this paper, we explore different algorithmic and staging approaches built on the system presented in~\cite{hood2015when} in order to figure out intricate aspects of long child-robot interactions in a pedagogical context. We solved previous 
+technical limitations of robot's letter learning and generation, and we introduce new algorithmic approaches that make robot's behaviour more convincing.
+Through three experiments, we involved children with real difficulties or low 
+self-esteem in repeated long sessions (four times about one hour). We used different
+measures, both qualitative and quantitative, to express the impact of those
+interaction with the CoWriter robot on the child.
+
+This article consists of four sections. In the first section we give technical details of our setup, such as how are connected the different modules
+together and which algorithms are used to learn and generate robot's letters.
+The following three parts report our three experiments and results. Two case studies specifically designed to be adapted to one child; one introduces a general design conducted with 8 children separately. 
+\section{Related work}
+
+\section{CoWriter: description of the activity}
+
+\section{Framework for Mutual Modelling}
+
+\section{Cognitive architecture}
+
+\section{Experimental studies}
+
+\section{Next steps}
+
+\section{Conclusion}
+
+
+
+\bibliographystyle{abbrv}
+
+\bibliography{cowriter} 
+
+\end{document}
