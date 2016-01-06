@@ -1,10 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Mutual Modelling in Robotics}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{The CoWriter project}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.1}{Mutual Modelling in HRI}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Application to the CoWriter project}{section.1}% 3
 \BOOKMARK [1][-]{section.2}{Related work}{}% 4
 \BOOKMARK [1][-]{section.3}{CoWriter: description of the activity}{}% 5
-\BOOKMARK [1][-]{section.4}{Framework for Mutual Modelling}{}% 6
-\BOOKMARK [1][-]{section.5}{Cognitive architecture}{}% 7
-\BOOKMARK [1][-]{section.6}{Experimental studies}{}% 8
-\BOOKMARK [1][-]{section.7}{Next steps}{}% 9
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Interaction overview}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Generating and learning letters}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Framework for mutual modelling in robotics}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Definitions}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Notations}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Cognitive architecture}{}% 11
+\BOOKMARK [1][-]{section.6}{Experimental studies}{}% 12
+\BOOKMARK [1][-]{section.7}{Next steps}{}% 13
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 14

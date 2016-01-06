@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2015.12.21)  3 JAN 2016 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2015.12.21)  6 JAN 2016 17:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -951,42 +951,51 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Citation `Christensen2005' on page 1 undefined on input line 64.
-
-
-
-LaTeX Warning: Citation `Hood' on page 1 undefined on input line 66.
+Underfull \hbox (badness 3375) in paragraph at lines 63--63
+[]\OT1/cmr/bx/n/12 Application to the CoWriter
+ []
 
 
-LaTeX Warning: Citation `Hoy2011' on page 1 undefined on input line 67.
+LaTeX Warning: Citation `Christensen2005' on page 1 undefined on input line 66.
 
 
-LaTeX Warning: Citation `Rohrbeck2003' on page 1 undefined on input line 73.
+
+LaTeX Warning: Citation `Hood' on page 1 undefined on input line 68.
 
 
-LaTeX Warning: Citation `Chase2009' on page 1 undefined on input line 81.
+LaTeX Warning: Citation `Hoy2011' on page 1 undefined on input line 69.
 
 
-LaTeX Warning: Citation `hood2015when' on page 1 undefined on input line 91.
+LaTeX Warning: Citation `Rohrbeck2003' on page 1 undefined on input line 75.
+
+
+LaTeX Warning: Citation `Chase2009' on page 1 undefined on input line 83.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+Underfull \vbox (badness 6396) has occurred while \output is active []
 
-LaTeX Warning: Citation `hood2015when' on page 2 undefined on input line 104.
 
 
-Underfull \hbox (badness 1983) in paragraph at lines 116--116
+LaTeX Warning: Citation `sharma2014me' on page 2 undefined on input line 104.
+
+[2]
+Underfull \hbox (badness 1983) in paragraph at lines 107--107
 []\OT1/cmr/bx/n/14.4 CoWriter: de-scrip-tion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--118
-[]\OT1/cmr/bx/n/14.4 Framework for Mu-tual
- []
+LaTeX Warning: Reference `fig:Vincent' on page 3 undefined on input line 119.
 
+<figs/experimental_setup.pdf, id=83, 578.29013pt x 520.68257pt>
+File: figs/experimental_setup.pdf Graphic file (type pdf)
+
+<use figs/experimental_setup.pdf>
+Package pdftex.def Info: figs/experimental_setup.pdf used on input line 133.
+(pdftex.def)             Requested size: 132.60135pt x 119.38899pt.
+ [3 <./figs/experimental_setup.pdf>]
 No file write_up.bbl.
 
 FiXme Summary: Number of notes: 0,
@@ -995,44 +1004,51 @@ FiXme Summary: Number of notes: 0,
 (FiXme)        Number of fatal errors: 0,
 (FiXme)        Total: 0.
 
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
+ (./write_up.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+Package rerunfilecheck Warning: File `write_up.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-(./write_up.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
-Package rerunfilecheck Info: File `write_up.out' has not changed.
-(rerunfilecheck)             Checksum: D312C58478EC0C6EC6BF6D8F304BE99E;580.
-
+Package rerunfilecheck Info: Checksums for `write_up.out':
+(rerunfilecheck)             Before: 2DE5579C8CCB6F819D5B5EED2D82426A;893
+(rerunfilecheck)             After:  E34E1E64F53FBB710CFDA0226407587F;873.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 18453 strings out of 495000
- 333343 string characters out of 6181168
- 425432 words of memory out of 5000000
- 21344 multiletter control sequences out of 15000+600000
- 10150 words of font info for 38 fonts, out of 8000000 for 9000
+ 18497 strings out of 495000
+ 333921 string characters out of 6181168
+ 427899 words of memory out of 5000000
+ 21371 multiletter control sequences out of 15000+600000
+ 14067 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,10n,60p,514b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,60p,1032b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti10.pfb>
-Output written on write_up.pdf (2 pages, 104395 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb>
+Output written on write_up.pdf (4 pages, 196844 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 152 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
+ 21 named destinations out of 1000 (max. 500000)
+ 130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
