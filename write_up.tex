@@ -169,14 +169,29 @@ trust in his ability to improve the robot' skills. And a learning curve just bas
 \section{Framework for mutual modelling in robotics}
 
 \subsection{Definitions}
-In this work, we extend the definition of mutual modelling from the representation of knowledge states to more global agent's states including knowledges but also positions, behaviours, emotions, beliefs, desires, pretending... etc. We define two levels of agent's state: the \textit{internal}, describing mental states (knowledges, beliefs, emotions, goals...), and the \textit{external}, describing the physical states (position in space, micro-behaviours, focus of attention, amount of movement...). These two levels are depending of each others: if an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Reversely, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. We will use some trivial assumption about these dependency to make prediction about understanding and expected micro-behaviours (see the section [dynamics].
+In this work, we extend the definition of mutual modelling from the representation of knowledge states to more global agent's states including knowledges but also positions, behaviours, emotions, beliefs, desires, pretending... etc. 
 
 In order to enable second-order theory of mind (the ability to attribute a theory of mind to other agents), we define two order of agents: the \textit{first-order-agents} concerns direct representations of agents by the robot (for example the child), while the \textit{second-order-agents} concerns the representation of agents by agents (for example the robot-perceived-by-the-child). To model second-order-agent like the robot-perceived-by-the-child is crucial if we want to play with the perception of the robot, e.g. to make sure the child understand that the robot is learning from his demonstrations. We can as well define \textit{$n^{\textit{th}}$-order} agents to play with higher level of theory of mind. In our implementation applied to the CoWriter activity, we will just use the two first orders. Unlike the epistemic logic, our framework will not take into account infinite loops of mutual modelling (as does the \textit{common-knowledge} operator \textbf{CK} described in related works). 
 
 The sensitive devices (for example cameras, micros, tactile sensors... and in the case of CoWriter the tablet's inputs) are used to measure a quantity of \textit{perceived variables} (the position in space of agents, the gaze targets, quality of demonstrations, the time to respond, the evaluation of the robot by the child...). Each \textit{perceived variable} is associated to the model of one agent (in CoWriter, the positions in space of the child is associated to the model of the child, while the evaluation of the robot is associated to the model of the child-perceived-by-the-robot). 
 
+We define two levels of perceived variables: the \textit{internal}, describing mental states (knowledges, beliefs, emotions, goals...), and the \textit{external}, describing the physical states (position in space, micro-behaviours, focus of attention, amount of movement...). These two levels are fundamentally different but closely dependent: if an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Reversely, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. We will use some trivial assumption about these dependency to make prediction about understanding and expected micro-behaviours (see the section [dynamics]).
+
+A model of an agent is the set of all the values of the perceived variables associated to this model. It can be formalized by two vectors: one for the values of internal variables and one for external variables. Since the values of the perceived variables are likely to change with the time, the models are dynamic.
+
 \subsection{Notations}
+
 The notation introduced by Dillenbourg in [dillen. 2014] is effective to describe complex multi-agent situations, but becomes quickly heavy when it is used for second-order mutual models: if \textbf{C} stands for the child and \textbf{R} for the robot, the model of the child-perceived-by-the-robot would be written \textbf{M(R; C; M(C; R; . ))}.
+
+In a context of HRI, most of the time we will consider one robot modelling human agent(s). Hence, we can assume that all the mutual models are processed by the robot. We will denote $\textbf{M}_\textbf{A}$ the model of an agent $\textbf{A}$, and $\textbf{M}_\textbf{AB}$ the model of the agent-\textbf{B}-perceived-by-the-agent-\textbf{A}. With this notation, the child-perceived-by-the-robot is described by $\textbf{M}_\textbf{CR}$. In the rare cases of the usage of more than one robot, the model processed by different robots can be distinguished by an additive index ($\textbf{Mi}_\textbf{A}$ describing the model of the agent \textbf{A} by the robot \textbf{i}). Models of third and higher orders agent are noted as well with a sequence of agent: $\textbf{M}_\textbf{ABCD}$ stands for ``((\textbf{A} \textit{perceived by} \textbf{B}) \textit{perc. by} \textbf{C}) \textit{perc. by} \textbf{D}".
+
+If $x^t$ represents the value of a perceived variable $X$ at time $t$, We can see the model of an agent \textbf{A} as a mapping $\textbf{M}^t_\textbf{A}: X \mapsto x^t$ that provides the value of the associated variables. 
+
+
+
+
+
+
 
 
 \section{Cognitive architecture}
