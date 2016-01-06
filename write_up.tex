@@ -101,7 +101,7 @@ At the beginning, the term ``mutual modelling" was introduced in this context, a
 
 Epistemic logic uses another notation to describe a similar situation: $\textbf{K}_{\textbf{A}}\textbf{K}_{\textbf{B}}\textbf{X}$ where $\textbf{K}_{\textbf{i}}\textbf{X}$ stands for ``agent \textbf{i} knows \textbf{X} (see [epistemic logic] for overview and references). This notation has been extended to describe more complex situations like the \textit{shared-knowledge} (all the agents of a group know \textbf{X}) and the \textit{common-knowledge} (all the agent of a group know \textbf{X}, and know that all the agent know \textbf{X}, and know that all the agents know that all the agents know \textbf{X}..., etc.). 
 However, Human-Robot Interaction research (HRI) has until now just scratched the surface. In [Scassellati], Scassellati gave an initial account of Leslie's and Baron-Cohen's theory of mind from the perspective of robotics, he limited his work to perceptual precursors (face detection or color saliency detection). Since then, some works (including Breazeal [breazeal], Trafton [trafton], Ros [ros] and Lemaignan [severin]) has been conduced to implement Flavell's first level of perspective taking [Flavell] (``\textit{I see (you do not see the book)}"), ability that is limited to the process of visual perception.
-In [withmeness], Lemaignan implemented a system that compute in real time the visual field of agents and estimate which objects are looked. This time, the robot is not just aware of what \textit{can be seen} by agents, but it perceives what \textit{is currently looked}. Lemaignan used this device to measure Sharma's \textit{with-me-ness}~\cite{sharma2014me} within the CoWriter activity, as the quantity of time the child looks what he is expected to look according to the current task/event. His results provided by the algorithm were significantly close to human's perception of the \textit{with-me-ness}.
+In [withmeness], Lemaignan implemented a system that compute in real time the visual field of agents and estimate which objects are looked. This time, the robot is not just aware of what \textit{can be seen} by agents, but it perceives what \textit{is currently looked}. Lemaignan used this device to measure Sharma's \textit{with-me-ness}~\cite{sharma2014me} within the CoWriter activity, as the number of times the child looks what he is expected to look according to the current task/event. His results provided by the algorithm were significantly close to human's perception of the \textit{with-me-ness}.
 
 
 \section{CoWriter: description of the activity}
@@ -175,7 +175,7 @@ In order to enable second-order theory of mind (the ability to attribute a theor
 
 The sensitive devices (for example cameras, micros, tactile sensors... and in the case of CoWriter the tablet's inputs) are used to measure a quantity of \textit{perceived variables} (the position in space of agents, the gaze targets, quality of demonstrations, the time to respond, the evaluation of the robot by the child...). Each \textit{perceived variable} is associated to the model of one agent (in CoWriter, the positions in space of the child is associated to the model of the child, while the evaluation of the robot is associated to the model of the child-perceived-by-the-robot). 
 
-We define two levels of perceived variables: the \textit{internal}, describing mental states (knowledges, beliefs, emotions, goals...), and the \textit{external}, describing the physical states (position in space, micro-behaviours, focus of attention, amount of movement...). These two levels are fundamentally different but closely dependent: if an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Reversely, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. We will use some trivial assumption about these dependency to make prediction about understanding and expected micro-behaviours (see the section [dynamics]).
+We define two levels of perceived variables: the \textit{internal}, describing mental states (knowledges, beliefs, emotions, goals...), and the \textit{external}, describing the physical states (position in space, micro-behaviours, focus of attention, amount of movement...). These two levels are fundamentally different but closely dependent: if an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Reversely, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. We will use some trivial assumption about these dependency to make prediction about understanding and expected micro-behaviours (see the section [causality]).
 
 A model of an agent is the set of all the values of the perceived variables associated to this model. It can be formalized by two vectors: one for the values of internal variables and one for external variables. Since the values of the perceived variables are likely to change with the time, the models are dynamic.
 
@@ -187,18 +187,32 @@ In a context of HRI, most of the time we will consider one robot modelling human
 
 If $x^t$ represents the value of a perceived variable $X$ at time $t$, We can see the model of an agent \textbf{A} as a mapping $\textbf{M}^t_\textbf{A}: X \mapsto x^t$ that provides the value of the associated variables. 
 
+\subsection{Expected causalities}
 
-
-
-
-
+Some assumptions can be made in order to use models to elaborate predictions. For example, if the robot shows an object and detects that the child saw it is pointing the object, then we expect that the child will gaze the target object.  let $X$ be the variable associated to the model of the child that stands for what the child is looking. If $X$ takes the value ``\textit{robot's hand}" (that means the child is looking the robot's hand) then we expect that $X$ will take the value ``\textit{target object}" in a near future. Using our notation described above, we write $(\textbf{M}_\textbf{C}(X)=\textit{``robot's hand"}) \Rightarrow (\textbf{M}_\textbf{C}(X)=\textit{``target object"})$. Then, if the child does not look the target object in the following instants, the robot can deduce that he did not understand the movement of pointing, and can take the decision to exaggerate it.
 
 
 \section{Cognitive architecture}
 
-\section{Experimental studies}
+\subsection{Global description}
 
-\section{Next steps}
+\subsection{sensitive modules}
+
+\subsection{Mutual modelling module}
+
+\subsection{Decision taking}
+
+\section{Implementation}
+
+\subsection{ROS modules}
+
+\subsection{Integration to CoWriter}
+
+\section{Evaluation}
+
+\subsection{Hypotheses}
+
+\subsection{Experimental studies}
 
 \section{Conclusion}
 
