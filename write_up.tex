@@ -82,7 +82,7 @@ failure to teach. Teachable computer-based agents have previously been used to
 encourage this prot\'eg\'e effect, where students invest more effort into
 learning when it is for the benefit of a teachable agent than for themselves~\cite{Chase2009}.
 We rely on this cognitive mechanism to reinforce the child's commitment into the
-robot-mediated handwriting activity.
+robot-mediated handwriting activity. The main idea is to give to the child a new extrinsic motivation to write letters: he will do it in order to help his ``prot\'eg\'e" robot.
 
 Our project requires a robot that play the role of a realistic learner to attract and challenge the child. At the moment, we have already implemented an tested the activity without mutual modelling ability in the robot [deana]: the movements, the learning curve and the sentences of the robot are set beforehand and do not depend on the interaction. But the realism of the learning robot and the prot\'eg\'e effect could be strongly improved if the robot was able to play his role according to a model of the child and, at a deeper level, to a model of \textit{the robot-perceived-by-the-child} and \textit{the child-perceived-by-himself}.
 
@@ -175,32 +175,56 @@ In order to enable second-order theory of mind (the ability to attribute a theor
 
 The sensitive devices (for example cameras, micros, tactile sensors... and in the case of CoWriter the tablet's inputs) are used to measure a quantity of \textit{perceived variables} (the position in space of agents, the gaze targets, quality of demonstrations, the time to respond, the evaluation of the robot by the child...). Each \textit{perceived variable} is associated to the model of one agent (in CoWriter, the positions in space of the child is associated to the model of the child, while the evaluation of the robot is associated to the model of the child-perceived-by-the-robot). 
 
-We define two levels of perceived variables: the \textit{internal}, describing mental states (knowledges, beliefs, emotions, goals...), and the \textit{external}, describing the physical states (position in space, micro-behaviours, focus of attention, amount of movement...). These two levels are fundamentally different but closely dependent: if an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Reversely, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. We will use some trivial assumption about these dependency to make prediction about understanding and expected micro-behaviours (see the section [causality]).
+Some variables can't be directly measured by the sensitive devices and are deduced from other variables of models (see an example in the section [expected causality]). We call them \textit{abstract variables}. 
 
-A model of an agent is the set of all the values of the perceived variables associated to this model. It can be formalized by two vectors: one for the values of internal variables and one for external variables. Since the values of the perceived variables are likely to change with the time, the models are dynamic.
+A model of an agent is the set of all the values of the perceived or abstract variables associated to this model. Since the values of variables are likely to change with the time, the models are dynamic.
 
 \subsection{Notations}
 
-The notation introduced by Dillenbourg in [dillen. 2014] is effective to describe complex multi-agent situations, but becomes quickly heavy when it is used for second-order mutual models: if \textbf{C} stands for the child and \textbf{R} for the robot, the model of the child-perceived-by-the-robot would be written \textbf{M(R; C; M(C; R; . ))}.
+The notation introduced by Dillenbourg in [dillen. 2014] is effective to describe complex multi-agent situations, but becomes quickly heavy when it is used for second-order mutual models: if \textbf{C} stands for the child and \textbf{R} for the robot, the model of the robot-perceived-by-the-child would be written \textbf{M(R; C; M(C; R; . ))}.
 
-In a context of HRI, most of the time we will consider one robot modelling human agent(s). Hence, we can assume that all the mutual models are processed by the robot. We will denote $\textbf{M}_\textbf{A}$ the model of an agent $\textbf{A}$, and $\textbf{M}_\textbf{AB}$ the model of the agent-\textbf{B}-perceived-by-the-agent-\textbf{A}. With this notation, the child-perceived-by-the-robot is described by $\textbf{M}_\textbf{CR}$. In the rare cases of the usage of more than one robot, the model processed by different robots can be distinguished by an additive index ($\textbf{Mi}_\textbf{A}$ describing the model of the agent \textbf{A} by the robot \textbf{i}). Models of third and higher orders agent are noted as well with a sequence of agent: $\textbf{M}_\textbf{ABCD}$ stands for ``((\textbf{A} \textit{perceived by} \textbf{B}) \textit{perc. by} \textbf{C}) \textit{perc. by} \textbf{D}".
+In a context of HRI, most of the time we will consider one robot modelling human agent(s). Hence, we can assume that all the mutual models are processed by the robot. We will denote $\textbf{M}_\textbf{A}$ the model of an agent $\textbf{A}$, and $\textbf{M}_\textbf{AB}$ the model of the agent-\textbf{B}-perceived-by-the-agent-\textbf{A}. With this notation, the model of the robot-perceived-by-the-child is described by $\textbf{M}_\textbf{CR}$. In the rare cases of the usage of more than one robot, the model processed by different robots can be distinguished by an additive index ($\textbf{Mi}_\textbf{A}$ describing the model of the agent \textbf{A} by the robot \textbf{i}). Models of third and higher orders agent are noted as well with a sequence of agent: $\textbf{M}_\textbf{ABCD}$ stands for ``\textit{the model of} ((\textbf{A} \textit{perceived by} \textbf{B}) \textit{perc. by} \textbf{C}) \textit{perc. by} \textbf{D}".
 
-If $x^t$ represents the value of a perceived variable $X$ at time $t$, We can see the model of an agent \textbf{A} as a mapping $\textbf{M}^t_\textbf{A}: X \mapsto x^t$ that provides the value of the associated variables. 
+If $x^t$ represents the value of a variable $X$ at time $t$, We can see the model of an agent \textbf{A} as a mapping $\textbf{M}^t_\textbf{A}: X \mapsto x^t$ that provides the value of the associated variables. 
 
 \subsection{Expected causalities}
 
-Some assumptions can be made in order to use models to elaborate predictions. For example, if the robot shows an object and detects that the child saw it is pointing the object, then we expect that the child will gaze the target object.  let $X$ be the variable associated to the model of the child that stands for what the child is looking. If $X$ takes the value ``\textit{robot's hand}" (that means the child is looking the robot's hand) then we expect that $X$ will take the value ``\textit{target object}" in a near future. Using our notation described above, we write $(\textbf{M}_\textbf{C}(X)=\textit{``robot's hand"}) \Rightarrow (\textbf{M}_\textbf{C}(X)=\textit{``target object"})$. Then, if the child does not look the target object in the following instants, the robot can deduce that he did not understand the movement of pointing, and can take the decision to exaggerate it.
+Some assumptions can be made in order to use models to elaborate predictions. If an agent is looking in a wrong direction during a demonstration, it will not assimilate the knowledge that it is provided. Also, if an agent understand a new knowledge from a demonstration or feels a strong emotion, its behaviour will be directly affected in consequence. An efficient mutual understanding between learning/teaching agents requires the usage of such assumptions.
+
+A simpler example is the following: if the robot shows an object and detects that the child saw it is pointing the object, then we expect that the child will gaze the target object.  let $X$ be the variable associated to the model of the child that stands for what the child is looking and $P$ a boolean variable representing the truth value of ``\textit{the child understand the movement of pointing}". $X$ can be measured from sensitive devices [withmeness], but $P$ must be deduced from the expected behaviour of the child. If $P$ is true and $X$ takes the value ``\textit{robot's hand}" (that means the child is looking the robot's hand) then we expect that $X$ will take the value ``\textit{target object}" in a near future. Using our notation described above, we write:\\
+\\
+$\textbf{M}^{t_0}_\textbf{C}(P)$ true \& $\textbf{M}^{t_0}_\textbf{C}(X)=\textit{``robot's hand"} \Rightarrow $\\ $\exists t_1>t_0, |t_1-t_0| < \theta, \textbf{M}^{t_1}_\textbf{C}(X)=\textit{``target object"}$\\
+\\
+Where $\theta$ represents a small number of instants.
+
+Then, if the child does not look the target object in the following $\theta$ instants, the robot can deduce that necessarily  $\textbf{M}^{t_0}_\textbf{C}(P)$ is false, that means the child did not understand the movement of pointing, and can take the decision to exaggerate it. 
 
 
 \section{Cognitive architecture}
 
 \subsection{Global description}
 
+Our cognitive architecture for mutual modelling can be designed in three main parts. A sensitive part will regroup all the module that measure the values of the perceived variables using sensitive devices (camera, sensors, micros...). An example of module of the sensitive part could be the system developed by lemaignan [withminess] that uses camera to measure a value of \textit{with-me-ness}. These values are sent to the mutual modelling part, that updates in real time models with measured values of perceived variables and deducts the value of abstract variables. Finally, the decision-taking part contains all the modules associated to the control of the robot (and other active devices like tablets in CoWriter). These modules can read values given by mutual models in order to compute decisions. In the example of the CoWriter activity, these modules are given by the system that learn and generate letters, but we can add a module that generates micro-behaviour, another that decides to switch to a new activity (e.g. drawing with the robot),... etc. The following subsections explain in details the content and operation of the three parts of the architecture. 
+
 \subsection{sensitive modules}
 
-\subsection{Mutual modelling module}
+The sensitive modules contains all the module able to use sensitive devices to measure value of relevant perceived variables. Some of these modules are associated to the content of the interaction activity. In CoWriter, the learning module takes inputs of tablets to compute the new state of robot's writing. It defines a sensitive module, and the value of the new state of the robot to write a letter defines a perceived variable. As well, the evaluation of the robot by the child via the feedback buttons defines another perceived variable provided by the modules of the activity. Other modules are independent of the activity: the system that estimates the target objects looked by the child provides additive information not directly used by the modules of the activity.  
+
+\subsection{Mutual modelling modules}
+
+Each perceived value measured by sensitive modules are associated to the model of an agent (or a $n^{th}$-order agent). Each mutual model can be designed as a module that knows the list of its associated perceived variables and watch if the value of one of these variables has been changed. An additive module knows all the expected causalities and computes the values of abstract variables. Some expected causalities can be empirically learnt and other set by hand. For example, 
 
 \subsection{Decision taking}
+
+We believe that the values of variables provided by mutual modelling will provide rich and useful information. Taking in account these values to elaborate decision should improve the realism and the efficiency of the robot in the interaction.
+Just like the sensitive ones, the modules that take decision can be directly associated to the activity (in CoWriter, the choice of a new learning curve or the decision to suddenly make a big mistake), or can govern independent behaviour (for example a module that generate the micro-behaviour of the robot).
+
+Some decision, especially the one that will govern the micro-behaviour of the robot can be autonomously taken by the robot. It will not strongly affect the content and objectives of the interaction (in CoWriter the main objective is to provide the child with a new extrinsic motivation to write in helping the robot). But other decision can have high impact on the progress of the interaction: taking the decision to stop an activity and to switch to a new one can frustrate a child that was committed into the activity. And the conditions to take such a decision are not directly assessable: they must be learnt by the robot. It could be cautious to let a wizard-of-Oz approach to make these decisions. In order to slowly move to an autonomous robot in the future, we can design an approach in three steps:
+\begin{enumerate}
+\item A human takes decisions; the robot learns
+\item The robot make suggestions; a human agrees or disagrees
+\item The robot make decisions
+\end{enumerate}
 
 \section{Implementation}
 
