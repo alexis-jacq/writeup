@@ -219,18 +219,28 @@ Each perceived value measured by sensitive modules are associated to the model o
 We believe that the values of variables provided by mutual modelling will provide rich and useful information. Taking in account these values to elaborate decision should improve the realism and the efficiency of the robot in the interaction.
 Just like the sensitive ones, the modules that take decision can be directly associated to the activity (in CoWriter, the choice of a new learning curve or the decision to suddenly make a big mistake), or can govern independent behaviour (for example a module that generate the micro-behaviour of the robot).
 
-Some decision, especially the one that will govern the micro-behaviour of the robot can be autonomously taken by the robot. It will not strongly affect the content and objectives of the interaction (in CoWriter the main objective is to provide the child with a new extrinsic motivation to write in helping the robot). But other decision can have high impact on the progress of the interaction: taking the decision to stop an activity and to switch to a new one can frustrate a child that was committed into the activity. And the conditions to take such a decision are not directly assessable: they must be learnt by the robot. It could be cautious to let a wizard-of-Oz approach to make these decisions. In order to slowly move to an autonomous robot in the future, we can design an approach in three steps:
+Some decision, especially the one that will govern the micro-behaviour of the robot can be autonomously taken by the robot. It will not strongly affect the content and objectives of the interaction (in CoWriter the main objective is to provide the child with a new extrinsic motivation to write in helping the robot). But other decision can have high impact on the progress of the interaction: taking the decision to stop an activity and to switch to a new one can frustrate a child that was committed into the activity. And the conditions to take such a decision are not directly assessable: they must be learnt by the robot. It could be cautious to let a Wizard-of-Oz approach to make these decisions. In order to slowly move to an autonomous robot in the future, we can design an approach in three steps:
 \begin{enumerate}
 \item A human takes decisions; the robot learns
-\item The robot make suggestions; a human agrees or disagrees
-\item The robot make decisions
+\item The robot makes suggestions; a human agrees or disagrees
+\item The robot makes decisions
 \end{enumerate}
+
+The picture [gros schema] visually summarize the global design of our architecture. 
 
 \section{Implementation}
 
 \subsection{ROS modules}
 
+The architecture will be implemented using ROS to relied and synchronize the activity of different modules (written as ROS nodes). The perceived variables provided by sensitive modules and abstract variables provided by expected causalities will be published as messages on topics specific to the associated models. In the same way, module of decision will subscribe to the model's topic in order to watch the values of the variables that they need. 
+
 \subsection{Integration to CoWriter}
+
+The CoWriter activity is already implemented using ROS. The main modules that measure and provide relevant perceived variables are the robot's state machine and the node that governs the algorithm of learning/generating letters and the interpreter of the tablet inputs. The variables are already published on other topics used by the activity. We just have to additionally publish them on the topics associated to the mutual models. 
+
+We will use 4 models: the model of the robot $\textbf{M}_\textbf{R}$, the model of the child $\textbf{M}_\textbf{C}$, the model of the robot-perceived-by-the-child $\textbf{M}_\textbf{CR}$ and the model of the child-perceived-by-the-child $\textbf{M}_\textbf{CC}$.
+
+Currently, the decisions taken within the CoWriter activity that needs information from mutual models are the physical behaviour of the robot (for example, when the robot is waiting for a demonstration it looks the tablet) and the progress of the robot (the choice of the new state learned from the demonstration). We can add several decisions in order to improve the realism and the smoothness of the interaction (for example, the robot suddenly makes a exaggerated mistake, the robot change its learning curve, ...). If we want to take into account information from mutual modelling, we need to improve the algorithms of decision since we bring additive variables: for example, to change the learning curve will requires some values of variables associated $\textbf{M}_\textbf{CR}$ like a boolean standing for ``the robot makes progress".
 
 \section{Evaluation}
 
