@@ -1,14 +1,27 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Mutual Modelling in HRI}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.1}{Importance of higher levels of Mutual Modelling in HRI}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Application to the CoWriter project}{section.1}% 3
 \BOOKMARK [1][-]{section.2}{Related work}{}% 4
-\BOOKMARK [1][-]{section.3}{CoWriter: description of the activity}{}% 5
+\BOOKMARK [1][-]{section.3}{Development \046 experiments with CoWriter}{}% 5
 \BOOKMARK [2][-]{subsection.3.1}{Interaction overview}{section.3}% 6
 \BOOKMARK [2][-]{subsection.3.2}{Generating and learning letters}{section.3}% 7
-\BOOKMARK [1][-]{section.4}{Framework for mutual modelling in robotics}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Definitions}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Notations}{section.4}% 10
-\BOOKMARK [1][-]{section.5}{Cognitive architecture}{}% 11
-\BOOKMARK [1][-]{section.6}{Experimental studies}{}% 12
-\BOOKMARK [1][-]{section.7}{Next steps}{}% 13
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 14
+\BOOKMARK [2][-]{subsection.3.3}{Long-term studies}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{With-me-ness}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{Importance of these results in future works}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Framework for mutual modelling in robotics}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Justification of the approach}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Notations}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.3}{Mutual understanding}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.4}{Structure and dynamic of the models}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Cognitive architecture}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Global description}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Perception modules}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Mutual modelling modules}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{Decision making}{section.5}% 20
+\BOOKMARK [1][-]{section.6}{Implementation}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{ROS modules}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{Integration to CoWriter}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Evaluation}{}% 24
+\BOOKMARK [2][-]{subsection.7.1}{Hypothesis}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.2}{Experimental studies}{section.7}% 26
+\BOOKMARK [1][-]{section.8}{Conclusion and planning}{}% 27

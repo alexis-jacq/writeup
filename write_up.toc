@@ -1,0 +1,51 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Importance of higher levels of Mutual Modelling in HRI}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Application to the CoWriter project}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Related work}{4}{section.2}
+\contentsline {section}{\numberline {3}Development \& experiments with CoWriter}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Interaction overview}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Generating and learning letters}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Long-term studies}{6}{subsection.3.3}
+\contentsline {paragraph}{Case-study 1: Vincent}{6}{section*.3}
+\contentsline {subparagraph}{Context}{6}{section*.4}
+\contentsline {subparagraph}{Hypothesis}{6}{section*.5}
+\contentsline {subparagraph}{Methodology}{6}{section*.6}
+\contentsline {subparagraph}{Measures \& Analysis}{7}{section*.7}
+\contentsline {subparagraph}{results}{7}{section*.9}
+\contentsline {paragraph}{Case-study 2: Thomas}{7}{section*.11}
+\contentsline {subparagraph}{Context}{7}{section*.12}
+\contentsline {subparagraph}{Hypothesis}{8}{section*.13}
+\contentsline {subparagraph}{Methodology}{8}{section*.14}
+\contentsline {subparagraph}{Measures \& Analysis}{8}{section*.15}
+\contentsline {subparagraph}{Results}{8}{section*.17}
+\contentsline {paragraph}{Clinic-study: when children evaluate the robot}{9}{section*.20}
+\contentsline {subparagraph}{Context}{9}{section*.21}
+\contentsline {subparagraph}{Hypothesis}{10}{section*.22}
+\contentsline {subparagraph}{Methodology}{10}{section*.23}
+\contentsline {subparagraph}{Measures \& Analysis}{10}{section*.24}
+\contentsline {subparagraph}{Results}{11}{section*.25}
+\contentsline {subsection}{\numberline {3.4}With-me-ness}{12}{subsection.3.4}
+\contentsline {paragraph}{Description}{12}{section*.27}
+\contentsline {subparagraph}{Head-pose estimation}{12}{section*.28}
+\contentsline {subparagraph}{Field and focus of attention estimation}{12}{section*.29}
+\contentsline {subparagraph}{Computing with-me-ness}{12}{section*.30}
+\contentsline {paragraph}{Validation}{12}{section*.31}
+\contentsline {subsection}{\numberline {3.5}Importance of these results in future works}{12}{subsection.3.5}
+\contentsline {section}{\numberline {4}Framework for mutual modelling in robotics}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Justification of the approach}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Notations}{12}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Mutual understanding}{13}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Structure and dynamic of the models}{13}{subsection.4.4}
+\contentsline {section}{\numberline {5}Cognitive architecture}{14}{section.5}
+\contentsline {subsection}{\numberline {5.1}Global description}{14}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Perception modules}{14}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Mutual modelling modules}{15}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Decision making}{15}{subsection.5.4}
+\contentsline {section}{\numberline {6}Implementation}{15}{section.6}
+\contentsline {subsection}{\numberline {6.1}ROS modules}{15}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Integration to CoWriter}{16}{subsection.6.2}
+\contentsline {section}{\numberline {7}Evaluation}{16}{section.7}
+\contentsline {subsection}{\numberline {7.1}Hypothesis}{16}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Experimental studies}{17}{subsection.7.2}
+\contentsline {section}{\numberline {8}Conclusion and planning}{17}{section.8}
