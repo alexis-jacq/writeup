@@ -23,6 +23,9 @@
 \usepackage{bbold}
 \usepackage{caption}
 
+\usepackage{ gensymb } % for \degree
+\usepackage{ amssymb } % for \varnothing
+
 \definecolor{canard}{rgb}{0,0.4,0.2}
 \definecolor{wine}{rgb}{0.4,0,0.2}
 \definecolor{marron}{rgb}{0.9,0.4,0.1}
@@ -81,9 +84,9 @@ $^2$Instituto Superior T\'{e}cnico, University of Lisbon, Portugal}
 In any constructive social interaction, agents must be able to understand each other. This mutual understanding requires the ability to establish a mental model of the other, called mutual modelling. My \textit{Ph.D.} is focused on mutual modelling in robotics: How robots can model other agents within social activities? Such models must be dynamic in order to keep track of shared knowledge, and adaptive in order to deal with specific behaviours of agents. 
 This work is directly applied to the CoWriter Project, that aims at exploring how a robot can help children with the acquisition of handwriting~\footnote{http://chili.epfl.ch/cowriter}. Does a second level of mutual modelling in robots would actually improve educative Human-Robot Interactions?
 \end{abstract}
-\newpage
+%\newpage
 
-\tableofcontents
+%\tableofcontents
 
 \section{Introduction}
 \subsection{Importance of higher levels of Mutual Modelling in HRI}
@@ -139,7 +142,7 @@ However, HRI research has not, until now, explored the whole potential of mutual
 
 
 \section{Development \& experiments with CoWriter}
-During the first year of my \textit{Ph.D.} I worked to develop the CoWriter activity by improving the 
+During the first year of my \textit{Ph.D.} I developed the CoWriter activity. I improved the content of the interaction (algorithm to learn and generate letters, automatic behaviour of the robot, interface to chose words on the second tablet, buttons for children feedback...) and the reliability and robustness of the implementation in order to make it usable by a child over an hour. Then, I tested this work via two case-studies and one clinic-study in real therapeutic contexts (see \ref{long}). I also contributed to the development of a tool that computes in real-time the visual focus of attention of a child and estimates a value of ``with-me-ness" (see \ref{with}).
 
 \subsection{Interaction overview}
 Figure~\ref{experimental_setup} illustrates our general experimental setup: a
@@ -193,7 +196,7 @@ However, to keep the child engaged, the robot must learn at the right rate, not 
 no opportunity for improving his skills and not too slow otherwise he may lose
 trust in his ability to improve the robot' skills. And a learning curve just based on the middle point between last state and demonstration will be too fast for one child, and too slow for another one. We need to make the robot aware of the child's perception of it progresses to take decision about its own learning curve. This awareness should be taken in account in our mutual modelling implementation, described in section~\ref{arch}. 
 
-\subsection{Long-term studies}
+\subsection{Long-term studies}\label{long}
 We tested CoWriter in real pedagogic/therapeutic contexts with
 children in difficulty over repeated long sessions (40-60 min). Through 3 different
 case studies, we explored and refined experimental designs and algorithms in
@@ -420,7 +423,7 @@ they were actually evaluating themselves.
 \end{table}
 
 
-\subsection{With-me-ness}
+\subsection{With-me-ness}\label{with}
 \emph{With-me-ness}, a concept borrowed from the
 field of {\it Computer-Supported Collaborative Learning}, measures in a
 well-defined way to what extent the human is \emph{with} the robot over the
@@ -429,15 +432,104 @@ engagement.
 \paragraph{Description}
 We explored a methodology, from real-time
 estimation of the human's focus of attention (relying on a novel, open-source,
-vision-based head pose estimator), to on-line computation of with-me-ness. The process can be described in 3 main steps:
+vision-based head pose estimator), to on-line computation of with-me-ness. The process can be described in 3 main steps (details in~\cite{lemaignan2016realtime}):
+
 \subparagraph{Head-pose estimation}
+We derive the visual field of attention from the head pose. Our
+technique only involves a single monocular RGB camera used for facial feature
+extraction, and a static simplified 3D mesh of a human head.  68 facial features
+are extracted using a fast template-based face alignment algorithm by Kazemi and
+Sullivan~\cite{kazemi2014one}, as implemented in the open-source {\tt dlib}
+library~\cite{dlib09}.  Eight of these features (chosen to be far apart and
+relatively stable across age and gender) are then matched to their 3D
+counterparts and we rely on an iterative $PnP$
+algorithm (OpenCV's implementation) to compute the translation and rotation of
+the head with respect to the camera frame. With this approach, knowing the
+intrinsic parameters of the camera (calibrated camera) is required for an
+accurate estimation of the absolute 3D localization of the head.
+
 \subparagraph{Field and focus of attention estimation}
+We model the field of attention as the central region of the field of view.  The
+field of view itself is approximated to a cone spanned from the nasal depression
+(sellion) of the human face. Different dimensions for the human field of view
+can be found in the literature: Holmqvist~\cite{holmqvist2011eye} models it
+with an horizontal aperture of $ \pm 40\degree $ and a vertical aperture of $
+\pm 25\degree $, while Walker~\cite{walker1980clinical} for instance suggests
+$60\degree$ up, $75\degree$ down, $60\degree$ inwards (towards the nose) and
+$95\degree$ outwards.  Previous work on visual perspective taking for social
+robotics~\cite{sisbot2011situation} model the field of attention as a cone of
+$30\degree$. We retained in this work a slightly wider aperture of $40\degree$.
+We then approximate the visual \emph{focus} of attention (VFoA) of the human to
+the objects which lie inside this field of attention (Figure~\ref{fig:vfoa}). At
+a given time, more than one object can therefore be \emph{in focus}.
+
 \subparagraph{Computing with-me-ness}
+The concept of \emph{with-me-ness} has been introduced in the field of
+\emph{Computer Supported Collaborative Learning} (CSCL) by Sharma~\etal
+in~\cite{sharma2014me}. Sharma~\etal introduce this concept in an attempt to
+answer a recurrent teacher's question: {\it ``how much are the students with
+me?''}. They distinguish what they call \emph{perceptual with-me-ness} (the
+student follows what the teacher refers to with deictic gestures) from
+\emph{conceptual with-me-ness} (the student follows what the teacher refers to
+verbally), and they show in an eye-tracking study that \emph{conceptual
+with-me-ness} in particular correlates with better learning performance. This
+also relates to the concept of gaze cross-recurrence that has been shown to
+reflect the quality of the interaction~\cite{jermann2012effects} in
+collaborative learning tasks. Sharma~\etal simply define \emph{conceptual with-me-ness} as the normalized
+percentage of time during which the student's gaze overlapped the areas of
+teaching slides currently referred to by the teacher.  In order to apply it to
+human-robot interactions, we propose to extend this concept, and to define
+\emph{conceptual with-me-ness} as the normalized ratio of time that the human
+interactant focuses its attention on the attentional target expected by the
+robot for the current task (or sub-task).
 \paragraph{Validation}
-We validated this approach using a naturalistic setup involving children during a complex robot-teaching task.
+We validated this approach with an experiment involving the CoWriter activity in a school.
+The robot
+controller would associate a set of expected attentional targets to the phase of
+the interaction. For instance, while the robot was
+waiting for the child's handwriting demonstration (``\textit{Waiting for
+feedback}'' phase), the expected attentional target of the child was the tablet (since
+the child was supposed to write there) or the secondary tablet (that displayed a
+template of the word, used as a reference by the child). These expected targets
+(green lines on Figure~\ref{fig:with-me-ness}) form the robot's attentional {\it
+a priori} knowledge and are used to compute the with-me-ness. The with-me-ness plotted at the bottom of Figure~\ref{fig:with-me-ness} is computed on a sliding window of 30 seconds, and thus gives a picture of
+``how well the child is following the robot's expectations'' at that time. As
+seen, the with-me-ness computed at run-time by the robot (blue line) is
+generally lower than the ground-truth (orange line, based on video-annotations),
+and sometimes quite off, such as during episode marked ``A'': during that phase,
+one can notice that the attention is mostly directed to undefined target {\sf
+Other}, likely a consequence of inaccurate head detection.  
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{with-me-ness}
+    \caption{\small \textbf{With-me-ness}. Evolution of the level of
+        \emph{with-me-ness} over the whole $\approx$17min long interaction of
+        the child. The bottom
+        diagram represents the instantaneous level of with-me-ness over a
+        sliding window of 30 seconds. The blue line is the with-me-ness as estimated
+        by the robot, the orange line is the with-me-ness computed from manually
+        annotated attentional targets.  Pearson's correlation between both
+        series for this subject: $r(973)=0.58, p < .001$.}
+
+    \label{fig:with-me-ness}
+\end{figure*}
 
 \subsection{Importance of these results in future works}
+CoWriter is an rich interaction, mostly non-verbal, full of misunderstandings between the child and the robot. For many reasons:
+\begin{itemize}
 
+\item The learning curve of the robot is several time not adapted to what expects the child (the robot is to slow to learn a word while the child is providing high number of perfect demonstrations or conversely too fast)
+\item Most of the time the robot does not look what the child want him to look or, contrariwise, the child is not looking what it is expected to look (that can be detected by the with-me-ness module presented above). 
+\item When the child does a mistake (pushing a wrong button on the tablet or writing wrong letters as a demonstration) the robot could detect it and react in consequence.
+\item Sometimes the child start to be completely disengages and the robot could also react (by trying to call back the commitment of the child or by asking to stop the activity by itself).
+\item The robot should wait to have the attention of the child in order to make sure his trial of writing will be observed.
+\item The robot should react as a student, but as a \textit{pretending} student in a didactic activity: if the child provides good feedback but is teaching a very wrong writing to the robot, the robot should be able to detect this situation and to say he does not want to learn this style. 
+
+\end{itemize}
+All those situation requires a second level of mutual modelling to be solved by an unique reasoning.
+The goal of my thesis is to build a cognitive architecture based on reasoning in two orders of mutual modelling. This architecture is expected to be generalizable and usable in different activities. But in order to make sure that this ability bring an improvement to HRI we need an interaction to test it. This interaction must be studied over long-term sessions in order to facilitate the grounding of non-verbal mutual understandings, and to promote occurrences of misunderstanding situations. 
+With the first case-study, we proved that the CoWriter activity is sustainable by one child over (at least) four sessions of one hour. The second case-study was to show that the activity can be used in real therapeutic context and could be an help for therapists: by improving this activity, a mutual modelling architecture could have a direct utility both in education and occupational therapy. The buttons for feedback tested by the clinic-study and the VFoA tracker tested to compute with-me-ness will be a useful feature for mutual modelling. In the clinic-study, we viewed that children can provide the robot with coherent feedback which is a strong information about their perception of a robot as a student while they are the teachers. The VFoA tracker will be used to keep a robust knowledge of what the child has seen and is looking at. This knowledge is essential to reason with 1st and 2nd level of mutual modelling. Furthermore, we believe that the interaction could be strongly improved by adding some micro-behaviour of the robot (short gazes or arm's gestures, non-verbal language) that such abilities.
 
 \section{Framework for mutual modelling in robotics}\label{framework}
 
