@@ -69,7 +69,7 @@
 \begin{document}
 
 
-\title{Mutual Modelling in Educational Child-Robot Interaction}
+\title{Mutual Understanding in Human-Robot Interaction}
 
 
 %\author{\# \# \#}
@@ -81,8 +81,8 @@ $^2$Instituto Superior T\'{e}cnico, University of Lisbon, Portugal}
 
 \maketitle
 \begin{abstract}
-In any constructive social interaction, agents must be able to understand each other. This mutual understanding requires the ability to establish a mental model of the other, called mutual modelling. My \textit{Ph.D.} is focused on mutual modelling in robotics: How robots can model other agents within social activities? Such models must be dynamic in order to keep track of shared knowledge, and adaptive in order to deal with specific behaviours of agents. 
-This work is directly applied to the CoWriter Project, that aims at exploring how a robot can help children with the acquisition of handwriting~\footnote{http://chili.epfl.ch/cowriter}. Does a second level of mutual modelling in robots would actually improve educative Human-Robot Interactions?
+In any constructive social interaction, agents must be able to understand each other. This mutual understanding requires the ability to establish a mental model of the other, called mutual modelling. My \textit{Ph.D.} is focused on mutual modelling in robotics: How robots can model other agents within social activities? Such models must be dynamic in order to keep track of shared knowledge, and adaptive in order to deal with specific behaviours of agents. We introduce a new approach to implement second-order of modelling in order to maintain a mutual understanding between human and robot. We ask the question: Will such an architecture improve Human-Robot Interactions ?
+This work is directly applied to the CoWriter Project, that aims at exploring how a robot can help children with the acquisition of handwriting~\footnote{http://chili.epfl.ch/cowriter}. Does a second level of mutual modelling in robots would actually improve this educative Child-Robot-Interactions?
 \end{abstract}
 %\newpage
 
@@ -91,57 +91,58 @@ This work is directly applied to the CoWriter Project, that aims at exploring ho
 \section{Introduction}
 \subsection{Importance of higher levels of Mutual Modelling in HRI}
 
-As human individuals, most of our skills and knowledge have been built through social interactions. At the beginning we learn from parents language and basics of etiquette.  Older, we learn culture and science mainly at school with teachers. To make possible such a social learning, both learners and teachers need to model each other: a teacher has to be aware of understood knowledge of his student, and a learner has to take the perspective of his teacher to understand his lessons. 
+A social robot is brought to interact with humans. The quality of this interaction depends on its ability to behave in an acceptable and understandable manner by the user. Hence the importance for a robot to take care of his image: how much it is perceived as an automatic and repetitive agent, or contrarily as a surprising and intelligent character. If the robot is able to detect this perception of itself, it can adapt its behaviour in order to be understood: ``\textit{you think I am sad while I am happy, I want you to understand that I am happy}". 
+
+In a collaborative context, where knowledge must be shared, agents must exhibit that they are acquiring the shared information with an immediate behaviour: ``\textit{I look at what you are showing me, do you see that I am looking at it, do you think I am paying attention to your explanation ?}"; ``\textit{I have understood your idea, do you understand that I have understood ?}". 
+As humans, we have different strategies to exhibit understanding or to resolve a misunderstanding. 
+As an example, if someone is talking about a visual object, we alternatively gaze between the object and the person to make sure he saw that we gazed at the object. Or if we detect that the other person has not understood a gesture (e.g. pointing at an object) we would probably exaggerate the gesture.
 
 Developed by Baron-Cohen and Leslie~\cite{baron1985does}, the Theory of Mind (ToM) describes the ability to attribute mental states and knowledge to others. In interaction, humans are permanently collecting and analysing huge quantity of information to stay aware of emotions, goals and understandings of their fellows. In this work, we focus on a generalization of this notion: Mutual Modelling characterizes the effort of one agent to model the mental state of another one~\cite{dillenbourg1999you}. 
 
-Until now, the work conduced by the Human-Robot Interaction (HRI) community to develop mutual modelling abilities in robots was limited to a first level of modelling (see Related Work section~\ref{rw}). Higher levels require the ability to recursively attribute a theory of mind to other agent (\textit{I think that you think that} ...) and their application to HRI remains unexplored. However, a knowledge of oneself perceived by others is necessary to adapt a behaviour to keep mutual understandings. Without such a reflection it is possible to try sharing knowledge, but no immediate feedbacks of success are given. If the trial has failed it is impossible to guess it and to repair it. % develop !
+Until now, the work conduced by the Human-Robot Interaction (HRI) community to develop mutual modelling abilities in robots was limited to a first level of modelling (see related work in section~\ref{rw}). Higher levels require the ability to recursively attribute a theory of mind to other agents (\textit{I think that you think that} ...) and their application to HRI remains unexplored. However, a knowledge of oneself perceived by others is necessary to adapt a behaviour to keep mutual understanding. 
 
-Especially in a context of child-robot interaction, a robot must take care of his image: how much it is perceived as an automatic and boring agent, or contrariwise as a surprising and intelligent character. If the robot is able to detect this perception of itself, it can adapt its behaviour in order to be understood: ``you think I am sad while I am happy, I want you to understand that I am happy". In an educational context where knowledge is shared, agents must exhibit that they are acquiring the shared information with an immediate behaviour: ``I look what you are showing to me, do you see I am looking what you are showing, do you think I am paying attention to your explanation ?"; ``I have understood your idea, do you understand I have understood ?". We have different strategies to exhibit understanding or to repair a miss-understanding. As an example, if someone is talking about a visual object, we alternatively gaze at the object and at the person to make sure he saw we gazed at the object. Or if we detect that the other have not understood a gesture (e.g. pointing an object) we probably exaggerate the gesture.
-
-The goal of this thesis is to develop a cognitive architecture that enables robots to perform mutual modelling-based reasoning in order to reach such a behaviour. It requires the robot to be aware of itself, of the human, and of itself perceived by the human. 
-
-Our research question is: \textit{does a second level of modelling enables higher quality interactions?} We will operationalize this questions and the measures of quality in this document.
+We introduce a framework for mutual modelling in HRI in section~\ref{framework} and present a new architectural approach that enable 1st and 2nd order of mutual modelling and use models to maintain a mutual understanding in section~\ref{arch}.
+Our research question is : \textit{does a second level of modelling enables higher quality interactions?} We will operationalize this questions and the measures of quality in section~\ref{eval}.
 
 \subsection{Application to the CoWriter project}
-Children facing difficulties in handwriting integration are more exposed
-to troubles during the acquisition of other disciplines as they grow up
-\cite{Christensen2005}. 
-The CoWriter activity introduces a new approach to help those children
-\cite{Hood}. Based on \emph{learning by teaching} paradigm, it aims to repair self-confidence and motivation of the child rather than his handwriting performance alone.
+An important challenge of social robotics is to provide assistance in education. 
+The ability of robots to support adaptive and repetitive tasks can be valuable in a learning interaction.
+The CoWriter Project~\cite{Hood,jacq2016building} introduces a new approach to help children with difficulties in learning handwriting. 
+Based on the \emph{learning by teaching} paradigm, the goal of the project is not only to help children with their handwriting, but mainly to improve their self-confidence and motivation in practising such exercise.
 
-\emph{Learning by teaching} is a technique that engages students to conduct the activity in the role of the teachers in order to support their learning process. This 
-paradigm is known to produce motivational, meta-cognitive and educational
-benefits in a range of disciplines~\cite{Rohrbeck2003}. The CoWriter project
-is the first application of learning by teaching approach to handwriting. 
+\emph{Learning by teaching} engages students to conduct the activity in the role of the teachers in order to support their learning process. 
+This  paradigm is known to produce motivational, meta-cognitive and educational benefits in a range of disciplines~\cite{Rohrbeck2003}. 
+The CoWriter project is the first application of the learning by teaching approach to handwriting.
 
-The effectiveness of our learning by teaching activity is built on the
-``prot\'eg\'e effect'': the teacher feels responsible for his student, commits
-to the student's success and possibly experiences student's failure as his own
-failure to teach. The main idea is to promote in the child an extrinsic motivation to write letters (he will do it in order to help his ``prot\'eg\'e" robot) and to reinforce the self-esteem of the child (he plays the teacher and the robot actually progress).
+The effectiveness of this learning by teaching activity is built on the ``prot\'eg\'e effect'': the teacher feels responsible for his student, commits to the student's success and possibly experiences student's failure as his own failure to teach. 
+The main idea is to promote the child's extrinsic motivation to write letters (he does it in order to help his ``prot\'eg\'e" robot) and to reinforce the self-esteem of the child (he plays the teacher and the robot actually progresses).
 
-Our project requires a robot that play the role of a realistic learner to attract and challenge the child. At the moment, we have already implemented and tested the activity without mutual modelling ability in the robot~\cite{Hood}: the movements, the learning curve and the sentences of the robot are set beforehand and do not depend on the interaction. However, the realism of the learning robot and the prot\'eg\'e effect could be strongly improved if the robot was able to play his role according to a model of the child and, at a deeper level, to a model of \textit{the robot-perceived-by-the-child} and \textit{the child-perceived-by-himself}.
+In that context, the robot needs to pretend enough difficulties to motivate the child to help it. 
+This ability of the robot to pretend strongly depends on the perception of the robot by the child: the displayed behaviours (gestures, gazes and sounds) by the robot, the initial level and learning speed of the robot must match with what the child imagines of a ``robot in difficulty".
+In order to adapt to the child, the robot needs then to have a model of how it is perceived by the child. On the other side, the child builds also a model of the robot's difficulties and attitude. 
+This mutual-modelling is primordial in order to have mutual understanding and fluid interaction between learner and teacher. 
 
-With a mutual modelling architecture, the robot could adapt his learning speed based on these models to make sure the child perceive its progresses. Furthermore, we want a robot that implicitly leads the child to correct himself while correcting the robot: for example, it could detect and exaggerate the mistakes of the child. At another scale, the robot could have a physical behaviour adapted to the child: \textit{micro-behaviours} (gestures, gazes and sounds) must be based on the content of the interaction and on the behaviour of the child in order to improve the realism of the robot, to induce strong prot\'eg\'e effect and to make the interaction with the robot more comfortable for a young child. 
-
-In this thesis, we aim to construct a general framework for mutual modelling and, in the same time, to develop and test it through this activity. We have designed an experimental framework that enable long-term studies in real pedagogic/therapeutic contexts~\cite{jacq2016building}. Following this work, our results will be based on experimental studies with children that face actual difficulties in learning handwriting.
+The section~\ref{year} shows all my contributions to this project, and explain how those contributions have prepared the ground for incoming studies and define the starting point for experimental verifications of the importance of our mutual modelling approach.
 
 \section{Related work}\label{rw}
 
 
-In several contexts, a large amount of fields have introduced their own framework to describe mutual modelling ability~\cite{lemaignan2015mutual}. 
-In Developmental psychology, Flavell~\cite{flavell1990developmental} denotes two different levels of perspective taking: The \textit{cognitive connection} (I see, I hear, I want, I like...) and \textit{mental representation} (what other agents feel, hear, want...). A specific deficit, namely autistic spectrum disorder, is accompanied by a lake of theory of mind in affected children. The study of this disorder led psychologists to develop false-belief experiments\cite{baron1985does}\cite{frith1994autism} that are used to bring out different levels of ToM in children.
+A large amount of fields have introduced frameworks to describe mutual modelling ability~\cite{lemaignan2015mutual}. 
+In developmental psychology Flavell~\cite{flavell1990developmental} denotes two different levels of perspective taking: the \textit{cognitive connection} (I see, I hear, I want, I like...) and \textit{mental representation} (what other agents feel, hear, want...).
 
-In Psycholinguistics and collaborative learning, and more precisely in \textit{computer supported collaborative learning} (CSCL), Roschelle and Teasley~\cite{roschelle1995construction} suggested that collaborative learning requires a process of constructing and maintaining a \textit{shared understanding} of the task at hand. 
-The term ``mutual modelling" was introduced in this context, and focused on knowledge states of agents~\cite{dillenbourg1999you}. Dillenbourg developed in \cite{sangin2007partner} a computational framework to represent mutual modelling situations. He introduced the notation \textbf{M(A,B,X)} to denote ``\textbf{A} knows that \textbf{B} knows \textbf{X}".
+From a computational perspective, Epistemic logic describes knowledges and beliefs shared by agents. This framework enables consideration of infinite-level of mutual modelling. It defines a \textit{shared-knowledge} (all the agents of a group know \textbf{X}) and a \textit{common-knowledge} (all the agents of a group know \textbf{X}, and know that all the agent know \textbf{X}, and know that all the agents know that all the agents know \textbf{X}, \dots.)~\cite{hendricks2008epistemic}. 
 
-Epistemic logic uses another notation to describe this concept: $\textbf{K}_{\textbf{A}}\textbf{K}_{\textbf{B}}\textbf{X}$ where $\textbf{K}_{\textbf{i}}\textbf{X}$ stands for ``agent \textbf{i} knows \textbf{X}. This notation is extended in order to describe more complex situations, like the \textit{shared-knowledge} (all the agents of a group know \textbf{X}) and the \textit{common-knowledge} (all the agents of a group know \textbf{X}, and know that all the agent know \textbf{X}, and know that all the agents know that all the agents know \textbf{X}..., etc.)~\cite{hendricks2008epistemic}. 
+Mutual modelling has also been studied through educational contexts. Roschelle and Teasley~\cite{roschelle1995construction} suggested that collaborative learning requires a \textit{shared understanding} of the task and of the shared information to solve it. 
+The term ``mutual modelling" was introduced in Computer-Supported Collaborative Learning (CSCL) by Dillenbourg~\cite{dillenbourg1999you}. It focused on knowledge states of agents. Dillenbourg developed in \cite{sangin2007partner} a computational framework to represent mutual modelling situations.
 
-However, HRI research has not, until now, explored the whole potential of mutual modelling. In \cite{scassellati2002theory}, Scassellati gave an initial account of Leslie's and Baron-Cohen's theory of mind from the perspective of robotics. He limited his work to perceptual precursors (face detection or colour saliency detection). Since then, some work (including Breazeal~\cite{breazeal2006using}, Trafton~\cite{Trafton2005}, Ros~\cite{Ros2010} and Lemaignan~\cite{lemaignan2012thesis}) has been conduced to implement Flavell's first level of perspective taking~\cite{flavell1977development} (``\textit{I see (you do not see the book)}"), ability that is limited to the process of visual perception. 
+However, HRI research has not, until now, explored the whole potential of mutual modelling. In \cite{scassellati2002theory}, Scassellati supported the importance of Leslie's and Baron-Cohen's theory of mind to be implemented as an ability for robots. 
+He focused his work on attention and perceptual processes (face detection or colour saliency detection). Thereafter, some works (including Breazeal~\cite{breazeal2006using}, Trafton~\cite{Trafton2005}, Ros~\cite{Ros2010} and Lemaignan~\cite{lemaignan2012thesis}) were conduced to implement Flavell's first level of perspective taking~\cite{flavell1977development} (``\textit{I see (you do not see the book)}"), ability that is still limited to visual perception. 
+
+Breazeal~\cite{breazeal2009embodied} and Warnier~\cite{warnier2012when} reproduced the Sally and Anne's test of Wimmer~\cite{wimmer1983beliefs} with robots able to perform visual perspective taking. The robot was able to infer the knowledge of a human given the history of his visual experience.
 
 
 
-\section{Development \& experiments with CoWriter}
+\section{Development \& experiments with CoWriter}\label{year}
 During the first year of my \textit{Ph.D.} I developed the CoWriter activity. I improved the content of the interaction (algorithm to learn and generate letters, automatic behaviour of the robot, interface to chose words on the second tablet, buttons for children feedback...) and the reliability and robustness of the implementation in order to make it usable by a child over an hour. Then, I tested this work via two case-studies and one clinic-study in real therapeutic contexts (see \ref{long}). I also contributed to the development of a tool that computes in real-time the visual focus of attention of a child and estimates a value of ``with-me-ness" (see \ref{with}).
 
 \subsection{Interaction overview}
@@ -162,14 +163,14 @@ learns from this demonstration and tries again.
 
    \begin{figure}
        \centering
-       \includegraphics[width=0.6\columnwidth]{experimental_setup}
+       \includegraphics[width=0.6\columnwidth]{realSetup}
        \caption{\small Our experimental setup: face-to-face interaction with a {\sc
            nao} robot.  The robot writes on the tactile tablet, the child then
            corrects the robot by directly overwriting its letters on the tablet
            with a stylus. An adult (either a therapist or an experimenter,
            depending on the studies), remains next to the child to guide the work
            (prompting, turn taking, etc.). For some studies, a second tablet and an
-           additional camera (lightened) are employed.}
+           additional camera (to the feet of the robot) are employed.}
 
        \label{experimental_setup}
    \end{figure}
@@ -230,32 +231,18 @@ We compared the number of demonstrations provided by Vincent along the 4 session
     \label{table:vincent_sess}
 \end{table}
 \subparagraph{results}
-Overall, Vincent provided 155 demonstrations to the robot. We can see in Table~\ref{table:vincent_sess} that the number of demonstrations provided by Vincent was globally increasing along sessions while the difficulty of the activity was also increasing. Interestingly, as the number of demonstration decreased from session 3 to session 4, the total time spend to write demonstrations is similar: 41.6s in session 3 ($\thicksim$0.8s per letter) and 41.1s in session 4 ($\thicksim$0.89s per letter). A explanation of this result could be that since the difficulty was increasing the child spent more time to write his demonstrations.
-
-After the first week, he showed
-confidence when playing with his ``prot\'eg\'e" and he built affective bonds with the robot
-over the course of the study, as evidenced by some cries on the last session,
-and several letters sent to the robot \emph{after} the end of the study
-(one of them 4 months later) to get news. This represents a promising initial
+Overall, Vincent provided 155 demonstrations to the robot. We can see in Table~\ref{table:vincent_sess} that the number of demonstrations provided by Vincent was globally increasing along sessions while the difficulty of the activity was also increasing. Interestingly, as the number of demonstration decreased from session 3 to session 4, the total time spend to write demonstrations is similar: 41.6s in session 3 ($\thicksim$0.8s per letter) and 41.1s in session 4 ($\thicksim$0.89s per letter). A explanation of this result could be that since the difficulty was increasing the child spent more time to write his demonstrations. From the parent's perspective, Vincent was actually showing a new motivation in improving his handwriting. He took pleasure to work with the robot and to accomplish his teacher's mission. This represents a promising initial
 result: we can effectively keep a child committed into the activity with the robot for a relatively
 long periods of time (about 4 hours).
 
-From the parent's perspective, Vincent was actually showing a new motivation in improving his handwriting. He took pleasure to work with the robot and to accomplish his teacher's mission. She confirmed that an affection of the child for the robot took root within the experiment. Finally she saw an improvement of his handwriting and explained that the child ``passed from a mix of script and cursive writing up to a full-cursive writing".
-
-But no conclusion can be drawn in terms of actual handwriting remediation: we did
-not design this study to formally assess possible improvements. However, as pictured on Figure~\ref{fig:stimuli}, Vincent was able to
-significantly improve the robot's skill, and he acknowledged that he had been
-able to help the robot: in that regard, Vincent convinced himself that he was
-``good enough'' at writing to help someone else, which is likely to have
-a positive impact on his self-esteem.
 
 \begin{figure}
     \centering
     \subfigure[Initial letter, generated by the robot]{
-        \includegraphics[height=4.5cm]{diego-initial-letter}
+        \includegraphics[height=3cm]{diego-initial-letter}
     }
     \subfigure[Final letter, after training with Vincent]{
-        \includegraphics[height=4.5cm]{diego-final-letter}
+        \includegraphics[height=3cm]{diego-final-letter}
     }
 
     \caption{\small (French) text generated by the robot, before and after a one
@@ -307,6 +294,18 @@ demonstrated by the child were acceptable considering our threshold (with a
 progressive improvement from 13 out of 28 in the first session up to 26 out
 of 29 in the last session).
 
+\begin{figure}[!]
+    \centering
+    \subfigure[number 2]{
+        \includegraphics[width=5cm]{henry2}
+    }
+	\subfigure[number 5]{
+        \includegraphics[width=5cm]{henry5}
+    }
+    \caption{\small Improvement of Thomas demonstrations for some numbers: a) the number 2 and b) the number 5. Thomas progressively took care of the demonstrations he was providing to the robot for those numbers. We used for this figure the same metric than the one used for the acceptance algorithm to measure distance between demonstration and templates. Distances are normalized with respect to the biggest value. The dashed line correspond to the threshold of robot's acceptance.}
+    \label{Thomas_progress}
+\end{figure}
+
 As soon as Thomas understood that the robot was only accepting well-formed
 allographs, he started to focus on it and he would typically draw 5 or 6 times
 the number before actually sending to the robot (the tablet lets children
@@ -325,38 +324,21 @@ commitment.
 
 \begin{figure}[!]
     \centering
-    \includegraphics[width=0.6\linewidth]{learning_6_distances}
+    \includegraphics[width=0.5\linewidth]{learning_6_distances}
     \caption{\small Distance between demonstrations and templates. Green lines represent the robot performance,
 blue lines performance of the child. The round IDs correspond to the demonstrations
 pictured on Figure~\ref{learning_6_demos}.}
     \label{Thomas_distances}
 \end{figure}
 
-\begin{figure}[!]
-    \centering
-    \subfigure[number 2]{
-        \includegraphics[width=6cm]{henry2}
-    }
-	\subfigure[number 5]{
-        \includegraphics[width=6cm]{henry5}
-    }
-    \caption{\small Improvement of Thomas demonstrations for some numbers: a) the number 2 and b) the number 5. Thomas progressively took care of the demonstrations he was providing to the robot for those numbers. We used for this figure the same metric than the one used for the acceptance algorithm to measure distance between demonstration and templates. Distances are normalized with respect to the biggest value. The dashed line correspond to the threshold of robot's acceptance.}
-    \label{Thomas_progress}
-\end{figure}
+
 \paragraph{Clinic-study: when children evaluate the robot}
 \subparagraph{Context}
 Each of previous studies was specifically adapted to a particular child: we relied on two different
 designs in order to sustain each child's commitment.
 In this new experiment, we conducted a study with eight children using a single experimental design. The children all have in common difficulties to learn
 cursive writing but the nature and magnitude of these troubles are significantly
-different from one child to another. Valerie (7 years old), Antoine (6.5) and
-Johan (7) are under the care of an
-occupational therapist. Emilien (8) and Mathieu (7) are repeating their school year
-because of writing. Marie (6) and Adele (8) are bottom of their respective
-classes in writing activities. Nicolas (7) is under the care of a neurologist, and
-has been diagnosed with specific language impairment. Given their school year, all of these children would be
-expected to know the shape of
-cursive letters. The experiment was conducted in collaboration with an occupational therapist. Our goal was to study the perception of the robot's progress in children. We wanted to know how easily children were able to take the role of teachers and to detect improvements or eventual degradations of the robot's letters.
+different from one child to another. The experiment was conducted in collaboration with an occupational therapist. Our goal was to study the perception of the robot's progress in children. We wanted to know how easily children were able to take the role of teachers and to detect improvements or eventual degradations of the robot's letters.
 \subparagraph{Hypothesis}
 Children understand their role and find motivation to teach the robot. They are able to perceive the progress of the robot, and their evaluations correlates with its handwriting performance.
 \subparagraph{Methodology}
@@ -460,7 +442,7 @@ $95\degree$ outwards.  Previous work on visual perspective taking for social
 robotics~\cite{sisbot2011situation} model the field of attention as a cone of
 $30\degree$. We retained in this work a slightly wider aperture of $40\degree$.
 We then approximate the visual \emph{focus} of attention (VFoA) of the human to
-the objects which lie inside this field of attention (Figure~\ref{fig:vfoa}). At
+the objects which lie inside this field of attention. At
 a given time, more than one object can therefore be \emph{in focus}.
 
 \subparagraph{Computing with-me-ness}
@@ -541,7 +523,7 @@ We propose a different approach of modelling, where we define two orders of agen
 Modelling second-order-agent like the robot-perceived-by-the-child, helps to model how the child perceives the robot, e.g. to make sure the child understand that the robot is learning from his demonstrations. 
 We can as well define $\textbf{n}^{\textbf{th}}$\textbf{-order-agents} with a higher level of theory of mind. But taking into account high levels of mutual modelling would be difficult to process in real time. Unlike the epistemic logic, our proposed framework will not take into account infinite regress~\cite{clark1991grounding} of mutual modelling.
 
-\subsection{Notations}
+\subsection{Notations}\label{not}
 $M_R\left[\textit{A}\right]$ stands for \textcolor{wine}{the model (built by the robot R) about the agent A} (first-order-agent). $M_R\left[\textit{A,B}\right]$ stands for \textcolor{wine}{the model (built by the robot R) about the agent B perceived by the agent A} (second-order-agent). 
 As said above, we limit our approach to 1st and 2nd order of modelling. In a two-agents interaction (the child and the robot) we will focus on three models: $ M_R\left[\textit{C}\right]$ (the model about the child), $ M_R\left[\textit{R}\right]$ (the model about the robot) and $ M_R\left[\textit{C,R}\right]$ (the robot perceived by the child). 
 It would be also interesting to study $ M_R\left[\textit{C,C}\right]$, the model about the child perceived by himself in order to play with his self-confidence. But detecting differences between $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,C}\right]$ seems difficult with the current abilities of the robot. 
@@ -557,86 +539,103 @@ Another type of misunderstanding concerns the comprehension of the robot by the 
 As an example, in the CoWriter activity, the child teach handwriting to the robot. The robot pretends to be a beginner, but it has its idea of a good handwriting. The robot is perfectly aware of its played progresses. But we want the child to be aware of the progress of the robot. In that perspective, the child's perception error corresponds to the sentence ``\textit{I make progress but the child think I don't}", while the prediction error of $M_R\left[\textit{C,R}\right]$ corresponds to ``\textit{The child think I don't make progress, but maybe he think I do and I haven't understood him}".  
 
 \subsection{Structure and dynamic of the models}
-Each model contains the knowledge and possible actions of an agent. The dynamic between actions and knowledges must be encoded. Some causality can be assumed in advance (if the child gives a good feedback to the robot, it means that the robot-perceived-by-the-child makes progresses) while other can be learnt (e.g. if each time the robot looks at the head of the child the child stops to write). Each modelled agent has its own goals, encoded as a reinforcement learning process. As an example, in CoWriter the robot-perceived-by-the-child ($ M_R\left[\textit{C,R}\right]$) is a learner and has the simple goal to make progress. The child ($ M_R\left[\textit{C}\right]$) is modelled as a teacher and is assumed to have the goal to improve the robot's writing. Then, the goal of the robot ($ M_R\left[\textit{R}\right]$) is to keep a mutual understanding: its knowledges and actions must correspond to itself perceived by the child, and it must be able to predict the behaviour of the child. The schema on Figure~\ref{mm} visually summarizes this example.
+Each model contains the knowledge, mental states and possible actions of an agent. The dynamic between actions and knowledges must be encoded. Some causality can be assumed in advance (if the child gives a good feedback to the robot, it means that the robot-perceived-by-the-child makes progresses) while other can be learnt (e.g. if each time the robot looks at the head of the child the child stops to write). Each modelled agent has its own goals, encoded as a reinforcement learning process. As an example, in CoWriter the robot-perceived-by-the-child ($ M_R\left[\textit{C,R}\right]$) is a learner and has the simple goal to make progress. The child ($ M_R\left[\textit{C}\right]$) is modelled as a teacher and is assumed to have the goal to improve the robot's writing. Then, the goal of the robot ($ M_R\left[\textit{R}\right]$) is to keep a mutual understanding: its knowledges and actions must correspond to itself perceived by the child, and it must be able to predict the behaviour of the child. The schema on Figure~\ref{mm} visually summarizes this example.
 
 The goals of $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,R}\right]$ depend on the activity and must be programmed each time we move to a new activity. They can be improved to better fit the child's behaviour by learning from experience. Contrariwise, the goal of $ M_R\left[\textit{R}\right]$ to keep a mutual understanding is independent and reusable. 
+
+All sensors (cameras, micros, motor positions etc. and in the case of CoWriter the tablet's inputs) are used to perceive information about the physical behaviour of agents. 
+We call all the measurable quantities or qualities that provide information like position in space, the direction of the gaze, speech, movement and facial expressions etc. as \textit{perceived variables}. 
+Each agent's model is associated with a set of perceived variables that describes his physical behaviour (mostly actions).
+
+knowledge and emotional states of agents cannot be directly measured directly from sensors. 
+We call \textit{abstract variables} all the quantities or qualities that describe the mental state of an agent. 
+Abstract variables are deduced from the dynamic of perceived variables. 
+As an example, if the robot points at an object with its arm, it expects the child to look at the object. 
+If then the child looks at the hand of the robot, the robot can deduce that the child has not understood the meaning of its gesture. 
+The perceived variables are the robot's gesture and the gaze direction of the child. 
+The deduced abstract variable is the understanding of the gesture by the child. 
+
 
 \begin{figure}[!]
 \centering
 \includegraphics[width=0.6\columnwidth]{mutual_behaviour}
-\caption{\small\textbf{}  }
+\caption{\small The different goals of agents and their behaviour in the perspective of our framework. We present a generic example where the child learns by teaching a knowledge A, that could represent the allograph of a letter. In the case of the CoWriter activity, the goal is to copy and exaggerate the difficulty of the child in order to induce a ``prot\'eg\'e" effect (red arrow) and we expect that the child will find motivation to teach the robot if we successfully induce this effect (green arrow). The robot uses predictions of $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,R}\right]$ and coherence between $ M_R\left[\textit{R}\right]$ and $ M_R\left[\textit{C,R}\right]$ in order to detect different kind of misunderstandings (blue arrows).}
 \label{mm}
 \end{figure} 
 
-\section{Cognitive architecture}\label{arch}
+\section{Implementation}\label{arch} 
 
-\subsection{Global description}
+\subsection{Perception}
+\label{ssec:perception}
+Sensitive modules measure values of relevant perceived variables. 
+While the agent's gaze direction and facial expression can be used in any interaction, some additive variables can be specific to the activity: in CoWriter, a module uses the tablet's input (demonstration of writing of the child) to compute the new state of robot's writing. The level of writing of the child and the robot are encoded as a perceived variables by the models of the robot and the child.
+The evaluation of the robot by the child via the feedback buttons on the tablet defines another perceived variable provided by the modules of the activity. 
+Other modules can be independent of the activity: the system that tracks the VFoA of the child and estimates the with-me-ness provides additive information not directly used by the modules of the activity.  
 
-Our cognitive architecture for mutual modelling can be designed in three main parts. A \textbf{perception part} will regroup all the modules that measure the values of the perceived variables using sensitive devices (camera, sensors, micros...). An example of module of the sensitive part could be the system developed by Lemaignan~\cite{lemaignan2016realtime} that uses camera to measure a value of \textit{with-me-ness}. These values are sent to the \textbf{mutual modelling part} that updates in real-time models with measured values of perceived variables and deducts the value of abstract variables. Finally, the \textbf{decision part} contains all the modules associated to the control of the robot (and other active devices like tablets in CoWriter). These modules can read values given by mutual models in order to compute decisions. In the example of the CoWriter activity, these modules are given by the system that learns and generate letters, but we can add a module that generates micro-behaviour, another that decides to switch to a new activity (e.g. drawing with the robot),... etc. The following subsections explain in detail the content and operation of the three parts of the architecture. 
-
-\subsection{Perception modules}
-
-The sensitive modules contain all the module able to use sensitive devices to measure value of relevant perceived variables. Some of these modules are associated with the content of the interaction activity. In CoWriter, the learning module takes inputs of tablets to compute the new state of robot's writing. It defines a sensitive module, and the value of the new state of the robot to write a letter defines a perceived variable. As well, the evaluation of the robot by the child via the feedback buttons defines another perceived variable provided by the modules of the activity. Other modules are independent of the activity: the system that estimates the target objects looked by the child provides additive information not directly used by the modules of the activity.  
-
-\subsection{Mutual modelling modules}
-
-Each perceived value measured by sensitive modules are associated with the model of an agent (or a $n^{th}$-order agent). Each mutual model can be designed as a module that knows the list of its associated perceived variables and watch if the value of one of these variables has been changed. An additive module knows all the expected causalities and computes the values of abstract variables. Some expected causalities can be empirically learned and other set by hands. 
+\subsection{Mutual models}
+\label{ssec:mmm}
+Each perceived value measured by the sensitive modules are associated with the model of an agent (or a $2^{th}$-order agent, like $M_R\left[CR\right]$). As an example, the VFoA of the child is associated to the model of the child, while the position of the head of the robot is a variable associated to the robot.
+The model of the robot $M_R\left[R\right]$ and the robot viewed by the child $M_R\left[CR\right]$ must contain the same variables in order to be comparable. But they are note governed by the same dynamic.
+A model encodes the values of perceived and abstract values and their dynamics. Also, the dynamic of variables from one model to another one must be encoded (an action of the robot has an impact on the behaviour of the child and an action of the child, like a feedback, as an impact on $M_R\left[CR\right]$). Different approaches can be use in order to encode this dynamic (bayesian, hebbian network, reinforcement learning, mixtures hebbian+reinforcement...). This dynamic is both used to establish predictions and to make decisions.
 
 \subsection{Decision making}
+\label{ssec:decision}
 
-We believe that the values of variables provided by mutual modelling will provide rich and useful information for decision making. Taking in account these values to elaborate decision should improve the realism and the efficiency of the robot in the interaction.
-Just like the sensitive ones, the modules that take decision can be directly associated to the activity (in CoWriter, the choice of a new learning curve or the decision to suddenly make a big mistake), or can govern independent behaviour (for example a module that generate the micro-behaviour of the robot).
+As we said above, the robot has two goals. One being the maintenance of a mutual understanding, the second being the goal of the activity. In CoWriter, we want to build a ``prot\'eg\'e effect" in order to induce in the child an extrinsic motivation to practice handwriting. In that perspective, the behaviour of the robot is to pretend that its handwriting is so poor the child will be convinced he can and must help the robot. Then, in order to maintain this effect, the robot must adopt a convincing behaviour of a student, making progress thanks to the demonstrations of the child. 
 
-Some decisions, especially the one that will govern the micro-behaviours of the robot can be autonomously made by the robot. It will not strongly affect the content and objectives of the activity (in CoWriter the main objective is to provide the child with a new extrinsic motivation to write in helping the robot). But other decisions can have a high impact on the progress of the interaction: to stop an activity and to switch to a new one can frustrate a child that was committed into the activity. The conditions to make such a decision are not directly assessable, but must be learned by the robot. In order to make these decision cautiously, we propose to start by a Wizard-of-Oz approach and to move towards an autonomous approach following these steps: 
+The only decision associated with the activity is to write, when it's its turn, a word with a handwriting style that will be convincing for the child. But the choice of this style and all other behaviour (robot's gaze direction, gestures, potential short speech) are made in order to maintain a mutual understanding. If the robot detects that it misunderstood the child (prediction error) it corrects the wrong dynamic of the models and, if it's important, it can tell the child about its mistake. If it detects that the child misunderstood the robot (child's perception error) it must repair the situation in order to be understood back. An idea to figure out the good action (or sequence of actions) that leads to help the child to understand could be to inverse the causality dynamic to find what actions cause the good knowledge (or mental state or action) in $M_R\left[CR\right]$. An example of such a process is the following: The robot uses a bad handwriting after a demonstration of the child. In $M_R\left[R\right]$, a variable representing the current level of handwriting takes a small value (0.1). Then, the child respond with a positive feedback. This positive feedback of the child leads to an higher value of the same variable in $M_R\left[CR\right]$ (0.7). As the difference between those variable is high (0.6), the robot wants to repair this miss understanding. The process will look for what leads to a small level of writing in $M_R\left[CR\right]$, that is a negative feedback of the child. Then, what leads to a negative feedback of the child is a very poor trial of writing of the robot and the fact that the child is looking at the tablet in the same time. Also, in order to conduce the child to look at the tablet, maybe the robot has to first look at the child waiting for an eyes-contact, then to look at the tablet. So the robot takes the decision to look at the child up to an eyes-contact, then to look at the tablet. If the child follows this gesture and also looks at the tablet, the robot start to write in a very bad style the same word (exaggerating the mistakes) and expect that this time the child will give a negative feedback.
+
+Some decisions can have a high impact on the interaction: to stop an activity and to switch to a new one can frustrate a child that was committed. 
+The conditions to make such a decision are not directly assessable, but must be learned by the robot. In order to make these decision cautiously, we propose to start by a Wizard-of-Oz approach and to move towards an autonomous approach following these steps: 
 \begin{enumerate}
 \item \textbf{Wizard-of-Oz}: A human takes decisions; the robot learns
 \item \textbf{Mixed-initiative}: The robot makes suggestions; a human agrees or disagrees
 \item \textbf{Autonomous}: The robot makes decisions
 \end{enumerate}
 
-The picture~\ref{cog} visually summarize the global design of our architecture. 
+% tetailler ce genre d'approche (surtout woz)
 
-\begin{figure}[!]
-\centering
-\includegraphics[width=1\columnwidth]{cognitive_archi}
-\caption{\small\textbf{Overview of the cognitive architecture}. Yellow squares represent different main parts. White ellipses represent modules. We named in example some content of modules and illustrated possible devices used for perception and decisions. }
-\label{cog}
-\end{figure}
+\subsection{ROS} % pas sur
 
-\section{Implementation}
-
-\subsection{ROS modules}
-
-The architecture will be implemented using ROS to synchronize the activity of different modules (written as ROS nodes). The perceived variables provided by sensitive modules and abstract variables provided by expected causalities will be published as messages on topics specific to the associated models. In the same way, modules of decision part will subscribe to the model's topic in order to watch the values of the variables that they need. 
+The architecture will be implemented using ROS to synchronize the activity of different parts of this architecture (written as ROS nodes). The perceived variables provided by sensitive modules and abstract variables provided by expected causalities will be published as messages on topics specific to the associated models. In the same way, decision taken will be sent as messages to the robot's control and tablets application in order to be realized. 
 
 \subsection{Integration to CoWriter}
 
-The CoWriter activity is already implemented using ROS. The main nodes that measure values of relevant variables are the robot's state machine, the node that governs the algorithm to learn/generate letters and the interpreter of the tablet inputs. Variables are already published on other topics used by the activity. We will additionally publish them on the topics associated to the mutual models. 
+The CoWriter activity is already implemented using ROS. The main nodes that measure values of relevant variables are the robot's state machine, the node that governs the algorithm to learn/generate letters and the interpreter of the tablet inputs. Variables are already published on other topics used by the activity. We will additionally publish them on the topics associated to the mutual modelling architecture. 
 
-We will use four models: the model of the robot $\textbf{M}_\textbf{R}$, the model of the child $\textbf{M}_\textbf{C}$, the model of the robot-perceived-by-the-child $\textbf{M}_\textbf{C,R}$ and the model of the child-perceived-by-the-child $\textbf{M}_\textbf{C,C}$.
-
-Currently, the decisions made within the CoWriter activity that needs information from mutual models are the physical behaviour of the robot (for example, when the robot is waiting for a demonstration it looks the tablet) and the progress of the robot (the choice of the new state learned from the demonstration). We can add several decisions in order to improve the realism and the smoothness of the interaction (for example, the robot suddenly makes an exaggerated mistake, the robot changes its learning curve ...). If we want to take into account information from mutual modelling, we need to improve the algorithms of decision since we bring additive variables: for example, to change the learning curve will require some values of variables associated with $\textbf{M}_\textbf{C,R}$ like the feedback of the child from tablet's buttons.
-
-\section{Evaluation}
+\section{Evaluation}\label{eval}
 
 \subsection{Hypothesis}
 
 The question of this thesis concerns the improvement of human-robot interactions brought by mutual modelling, especially in the educational context of the CoWriter activity. In order to evaluate this improvement, we hypothesize the following assertion:\\
-\textit{Decisions made using additive information from second level of mutual modelling improve the quality of the CoWriter interaction.}\\
-To study this hypothesis, we need to rigorously define the \textit{quality of the interaction}. Since the goal is to promote child's self-esteem and extrinsic motivation by inducing a ``prot\'eg\'e" effect, we would like to measure the motivation of the child to play the activity and his satisfaction of the robot's progress.
+
+%\begin{itemize}
+\textit{- Decisions made using our architecture that tries to maintain a mutual understanding improve the quality of human-robot interactions.}\\
+%\end{itemize}
+
+As we will test and focus the application on the CoWriter project, we can develop this hypothesis in two sub-hypothesis:\\
+
+%\begin{itemize}
+\textit{- Our architecture improve the interaction in CoWriter activity} (1).\\
+\textit{- Our architecture is generalisable and can be adapted to other activities} (2).\\
+%\end{itemize}
+
+To study hypothesis (1), we need to rigorously define the \textit{quality of the interaction}.\\
+Since the goal is to promote extrinsic motivation by inducing a ``prot\'eg\'e" effect, we would like to measure the motivation of the child to play the activity and his satisfaction of the robot's progress. As we justified in section~\ref{not}, we will not (at least in a first time) look at the improvement of children self-esteem, that is a second goal of CoWriter. 
+
+Hypothesis (2) will be verified by designing different interactions, not necessary related to an educational context, that will be based on tasks that need 2nd order of modelling and mutual understanding in order to be solved.
 
 \subsection{Experimental studies}
 
-Such a measure can be defined by a large amount of variable that provide cues about the commitment of the child (quantity of demonstrations, time spend to write demonstrations, quality/progress of demonstration, progress of the robot, \textit{with-me-ness} ...). The evaluation with feedback buttons can also be used to estimate how the child understands his role of teacher~\cite{jacq2016building}. 
+In CoWriter, a measure of the quality of the interaction can be defined by a large amount of variable that provide cues about the commitment of the child (quantity of demonstrations, time spend to write demonstrations, quality/progress of demonstration, progress of the robot, \textit{with-me-ness} ...). The evaluation with feedback buttons can also be used to estimate how the child understands his role of teacher.
 
-Along the successive steps to develop our mutual modelling architecture (each step being the addition of a new variable or a group of new variables to take into account), we will test the improvement of the interaction by measuring the above values. We will promote long-term studies with children facing real difficulties to learn handwriting with professional facilitators (teachers or therapists), following our previous works~\cite{jacq2016building}. 
+Some experiment will be conduced in order to develop the architecture by testing it step by step. As an example, we will start with a small number of variables (perceived variables that are ready like the VFoA, children's feedback and level of writing) and a small set of actions (gaze direction, style of writing) and we will conduce experiment in order to figure out how to initialise the dynamics of those variables. Also, we will need to figure out how the robot must react when it exaggerate a bad handwriting. And we will progressively add new variables to take into account and new actions. Each time we will test and parametrize the new improvements with experiments. Such experiments requires high number of children but does not require long-term studies. They will be conduced in school as we did to setup and verify the with-me-ness in~\ref{with}.
+
+When the architecture will be enough enriched with perceived/abstract variables and actions, we will figure out the possible improvement brought by the architecture and hence verify the hypothesis (1) via long-term studies. It will not necessary requires high number of children (may be 10 will be enough). One half of children will interact with the robot using mutual modelling reasoning and the other half (control group) will interact with the robot without mutual modelling (the current state of the activity). We will also verify the hypothesis (2) with group of children (or adults, depending on the activity) where only a half will interact with a mutual modelling robot. these last experiment will not requires long-term studies like with CoWriter, but maybe high number of subject will be required.
 
 \section{Conclusion and planning}
 
 We presented in this paper the research question of this thesis, which concerns the importance of mutual modelling in educative human-robot interactions. In order to study this question, we will develop an architecture based on mutual modelling that will collect information about mental and physical states of different agent. The stages of this construction will correspond to the successive additions of variables (or groups of variables) to take into account by the models. We will progressively extract pieces of response to our research question by testing our system each time a stage is crossed. We will use the framework for mutual modelling in HRI that we introduced in~\ref{framework} in order to simplify notations and clarify the concepts. 
-
-During the first year of this thesis, our work was turned on the improvement and finishing of the CoWriter activity's implementation. We designed an experimental set-up that enable long-term studies in pedagogic/therapeutic contexts with children facing real difficulties to learn handwriting~\cite{jacq2016building}. Finally, we started to implement additional sensitive modules independent of the CoWriter that will provide relevant variables to feed our future mutual modelling architecture (e.g. the system that estimates what the visual object of attention of the child~\cite{lemaignan2016realtime}).
-
 
 \bibliographystyle{abbrv}
 \small
