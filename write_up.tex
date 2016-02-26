@@ -128,7 +128,7 @@ In order to adapt to the child, the robot needs then to have a model of how it i
 This mutual-modelling is primordial in order to have mutual understanding and fluid interaction between learner and teacher. 
 
 The section~\ref{year} shows all my contributions to this project, and explain how those contributions have prepared the ground for incoming studies and define the starting point for experimental verifications of the importance of our mutual modelling approach.
-
+%todo decri bien le fait je vais presenter 3 expe et après je voues explique en quoi elles nous on aider pour notre travail de MM
 \section{Related work}\label{rw}
 
 
@@ -262,8 +262,9 @@ The the ``prot\'eg\'e" effect was actually induced and the child felt responsibl
 \end{figure}
 
 \paragraph{Case-study 2: Thomas}
+
 \subparagraph{Context}
-Thomas, 5.5 years old child, is under the care of an occupational
+Thomas, five and a half years old boy, is under the care of an occupational
 therapist. He has been diagnosed with visuo-constructive deficits.
 He was frequently performing random attempts and then was comparing
 with the provided template. According to the therapist, Thomas is restless and careless: he
@@ -271,11 +272,11 @@ rarely pays attention to
 advice and does not take care of his drawing movement when he is writing. He is
 quickly shifting his attention from one activity to another. Thomas was working on number allographs with his therapist. During a prior
 meeting, the therapist provided us with a sequence of numbers
-written by Thomas. one of the observed problems was drawing
-horizontally-inverted allographs, mainly for ``5". The experiment was conduced with Thomas' therapist. 
+written by Thomas. One of the problems observed was drawing
+horizontally-inverted allographs, mainly for ``5". The experiment was conducted with Thomas' therapist. 
 \subparagraph{Hypothesis}
-We want to see if the CoWriter activity can be adapted to a pedagogical context in order help a child with diagnosed deficits to learn handwriting. We believe that small modifications of the activity adapted to
-Thomas problems (visuo-constructive deficits and inattention) could help to
+Our goal was to evaluate if the CoWriter activity could be adapted to a pedagogical context in order help a child with diagnosed deficits to learn handwriting. We believe that small modifications of the activity adapted to
+Thomas' problems (visuo-constructive deficits and inattention) could help to
 keep him focused on the activity during forty-minutes sessions, and to evidence to the child that the robot is progressing by dint of his demonstrations. 
 \subparagraph{Methodology}
 The experiment was conducted in the therapist's office (four sessions 
@@ -284,7 +285,7 @@ for Vincent would not be usable with Thomas. We just introduced the robot
 and quickly said that it was seeking help to train for a robot handwriting contest. In order to integrate our work with that of the therapist, we decided to adapt the 
 CoWriter activity to work with numbers. Details of the experimental design are presented in~\cite{jacq2016building}.
 \subparagraph{Measures \& Analysis}
-We recorded all the demonstration performed by the child and by the robot. The duration of sessions and the time spend by demonstration were also recorded by the logs of the tablet. It was difficult to make comparison between different sessions since the child did not work on the same numbers. But we could study the evolution of the quality of Thomas' demonstration when he was working on a given number (Figure~\ref{Thomas_progress}).
+We recorded all the demonstration performed by the child and by the robot. The duration of sessions and the time spent by demonstration were also recorded by the logs of the tablet. It was difficult to make a comparison between different sessions since the child did not work on the same numbers. But we could study the evolution of the quality of Thomas' demonstration when he was working on a given number (Figure~\ref{Thomas_progress}).
 To show how Thomas leaded the robot to reach his level we plotted on the same graph the evolution of the quality of Thomas' demonstrations and the robot's trials (Figure~\ref{Thomas_distances}). We also reconstructed and displayed the drawn allographs of the number 6 to visualize the impact of the lessons of Thomas on the robot (Figure~\ref{learning_6_demos}). 
 \begin{figure}[!]
     \centering
@@ -300,7 +301,7 @@ process of the robot.}
 Despite his attention deficit, Thomas was able to remain engaged in the activity during more than
 forty minutes in each session. In total, 55 allographs out of 82 
 demonstrated by the child were acceptable considering our threshold (with a
-progressive improvement from 13 out of 28 in the first session up to 26 out
+progressive improvement from 13 allographs out of 28 in the first session up to 26 out
 of 29 in the last session).
 
 \begin{figure}[!]
@@ -423,7 +424,7 @@ engagement.
 \paragraph{Description}
 We explored a methodology, from real-time
 estimation of the human's focus of attention (relying on a novel, open-source,
-vision-based head pose estimator), to on-line computation of with-me-ness. The process can be described in 3 main steps (details in~\cite{lemaignan2016realtime}):
+vision-based head pose estimator), to on-line computation of with-me-ness. The process can be described in 3 main steps (work published in~\cite{lemaignan2016realtime}):
 
 \subparagraph{Head-pose estimation}
 We derive the visual field of attention from the head pose. Our
@@ -507,20 +508,27 @@ Other}, likely a consequence of inaccurate head detection.
 \end{figure*}
 
 \subsection{Importance of these results in future works}
-CoWriter is an rich interaction, mostly non-verbal, full of misunderstandings between the child and the robot. For many reasons:
+The CoWriter activity provides rich interactions, mostly non-verbal, full of misunderstandings between the child and the robot. For many reasons:
 \begin{itemize}
 
-\item The learning curve of the robot is several time not adapted to what expects the child (the robot is to slow to learn a word while the child is providing high number of perfect demonstrations or conversely too fast)
-\item Most of the time the robot does not look what the child want him to look or, contrariwise, the child is not looking what it is expected to look (that can be detected by the with-me-ness module presented above). 
+\item The learning curve of the robot is often not adapted to the child's expectations (the robot is to slow to learn a word while the child is providing high number of perfect demonstrations or conversely too fast)
+\item Most of the time the robot does not look at what the child wants him to look at or, contrariwise, the child is not looking what he is expected to look at (the last can be detected by the with-me-ness module presented above). 
 \item When the child does a mistake (pushing a wrong button on the tablet or writing wrong letters as a demonstration) the robot could detect it and react in consequence.
-\item Sometimes the child start to be completely disengages and the robot could also react (by trying to call back the commitment of the child or by asking to stop the activity by itself).
-\item The robot should wait to have the attention of the child in order to make sure his trial of writing will be observed.
+\item Sometimes the child starts to be completely disengaged and the robot should react (by trying to call back the commitment of the child or by asking to stop the activity by itself).
+\item The robot should wait to have the attention of the child in order to make sure that its trial of writing is being observed.
 \item The robot should react as a student, but as a \textit{pretending} student in a didactic activity: if the child provides good feedback but is teaching a very wrong writing to the robot, the robot should be able to detect this situation and to say he does not want to learn this style. 
 
 \end{itemize}
-All those situation requires a second level of mutual modelling to be solved by an unique reasoning.
-The goal of my thesis is to build a cognitive architecture based on reasoning in two orders of mutual modelling. This architecture is expected to be generalizable and usable in different activities. But in order to make sure that this ability bring an improvement to HRI we need an interaction to test it. This interaction must be studied over long-term sessions in order to facilitate the grounding of non-verbal mutual understandings, and to promote occurrences of misunderstanding situations. 
-With the first case-study, we proved that the CoWriter activity is sustainable by one child over (at least) four sessions of one hour. The second case-study was to show that the activity can be used in real therapeutic context and could be an help for therapists: by improving this activity, a mutual modelling architecture could have a direct utility both in education and occupational therapy. The buttons for feedback tested by the clinic-study and the VFoA tracker tested to compute with-me-ness will be a useful feature for mutual modelling. In the clinic-study, we viewed that children can provide the robot with coherent feedback which is a strong information about their perception of a robot as a student while they are the teachers. The VFoA tracker will be used to keep a robust knowledge of what the child has seen and is looking at. This knowledge is essential to reason with 1st and 2nd level of mutual modelling. Furthermore, we believe that the interaction could be strongly improved by adding some micro-behaviour of the robot (short gazes or arm's gestures, non-verbal language) that such abilities.
+All those situations require a second level of mutual modelling to be solved by an unique reasoning.
+The goal of my thesis is to build a cognitive architecture based on reasoning in two orders of mutual modelling. This architecture is expected to be generalizable and usable in different activities. But in order to make sure that this ability bring an improvement to HRI, it needs experimental evaluation involving  and interactive robot. 
+This interaction must be studied over long-term sessions in order to facilitate the grounding of non-verbal mutual understandings, and to promote occurrences of misunderstanding situations. 
+With the first case-study, we proved that the CoWriter activity is sustainable by one child over (at least) four sessions of one hour. 
+The second case-study was to show that the activity can be used in real therapeutic context and could be an help for therapists: by improving this activity, a mutual modelling architecture could have a direct utility both in education and occupational therapy. 
+The buttons for feedback tested by the clinic-study and the evaluation and calibration of the with-me-ness data will be a useful feature for mutual modelling. 
+In the clinic-study, we saw that children could give coherent feedbacks to the robot which is a strong information about their perception of a robot as a student while they are the teachers. 
+The VFoA tracker
+%todo VFoA: abbrevations should be introduced with full form before being used
+ will be used to keep a robust knowledge of what the child has seen and is looking at. This knowledge is essential to reason with 1st and 2nd level of mutual modelling. Furthermore, we believe that the interaction could be improved by adding some micro-behaviours to the robot (short gazes or arm's gestures, non-verbal language) that such abilities.
 
 \section{Framework for mutual modelling in robotics}\label{framework}
 \subsection{Justification of the approach}
@@ -547,7 +555,7 @@ Another type of misunderstanding concerns the comprehension of the robot by the 
 As an example, in the CoWriter activity, the child teach handwriting to the robot. The robot pretends to be a beginner, but it has its idea of a good handwriting. The robot is perfectly aware of its played progresses. But we want the child to be aware of the progress of the robot. In that perspective, the child's perception error corresponds to the sentence ``\textit{I make progress but the child think I don't}", while the prediction error of $M_R\left[\textit{C,R}\right]$ corresponds to ``\textit{The child think I don't make progress, but maybe he think I do and I haven't understood him}".  
 
 \subsection{Structure and dynamic of the models}
-Each model contains the knowledge, mental states and possible actions of an agent. The dynamic between actions and knowledges must be encoded. Some causality can be assumed in advance (if the child gives a good feedback to the robot, it means that the robot-perceived-by-the-child makes progresses) while other can be learnt (e.g. if each time the robot looks at the head of the child the child stops to write). Each modelled agent has its own goals, encoded as a reinforcement learning process. As an example, in CoWriter the robot-perceived-by-the-child ($ M_R\left[\textit{C,R}\right]$) is a learner and has the simple goal to make progress. The child ($ M_R\left[\textit{C}\right]$) is modelled as a teacher and is assumed to have the goal to improve the robot's writing. Then, the goal of the robot ($ M_R\left[\textit{R}\right]$) is to keep a mutual understanding: its knowledges and actions must correspond to itself perceived by the child, and it must be able to predict the behaviour of the child. The schema on Figure~\ref{mm} visually summarizes this example.
+Each model contains the knowledge, mental states and possible actions of an agent. The dynamic between actions and knowledges must be encoded. Some causality can be assumed in advance (if the child gives a good feedback to the robot, it means that the robot-perceived-by-the-child makes progresses) while other can be learnt (e.g. if each time the robot looks at the head of the child, the child stops to write). Each modelled agent has its own goals, encoded as a reinforcement learning process. As an example, in CoWriter the robot-perceived-by-the-child ($ M_R\left[\textit{C,R}\right]$) is a learner and has the simple goal to make progress. The child ($ M_R\left[\textit{C}\right]$) is modelled as a teacher and is assumed to have the goal to improve the robot's writing. Then, the goal of the robot ($ M_R\left[\textit{R}\right]$) is to keep a mutual understanding: its knowledges and actions must correspond to itself perceived by the child, and it must be able to predict the behaviour of the child. The Figure~\ref{mm} visually summarizes this example.
 
 The goals of $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,R}\right]$ depend on the activity and must be programmed each time we move to a new activity. They can be improved to better fit the child's behaviour by learning from experience. Contrariwise, the goal of $ M_R\left[\textit{R}\right]$ to keep a mutual understanding is independent and reusable. 
 
@@ -555,7 +563,7 @@ All sensors (cameras, micros, motor positions etc. and in the case of CoWriter t
 We call all the measurable quantities or qualities that provide information like position in space, the direction of the gaze, speech, movement and facial expressions etc. as \textit{perceived variables}. 
 Each agent's model is associated with a set of perceived variables that describes his physical behaviour (mostly actions).
 
-Knowledge and emotional states of agents cannot be directly measured directly from sensors. 
+Knowledge and emotional states of agents cannot be directly measured by the  sensors. 
 We call \textit{abstract variables} all the quantities or qualities that describe the mental state of an agent. 
 Abstract variables are deduced from the dynamic of perceived variables. 
 As an example, if the robot points at an object with its arm, it expects the child to look at the object. 
@@ -567,7 +575,7 @@ The deduced abstract variable is the understanding of the gesture by the child.
 \begin{figure}[!]
 \centering
 \includegraphics[width=0.6\columnwidth]{mutual_behaviour}
-\caption{\small The different goals of agents and their behaviour in the perspective of our framework. We present a generic example where the child learns by teaching a knowledge A, that could represent the allograph of a letter. In the case of the CoWriter activity, the goal is to copy and exaggerate the difficulty of the child in order to induce a ``prot\'eg\'e" effect (red arrow) and we expect that the child will find motivation to teach the robot if we successfully induce this effect (green arrow). The robot uses predictions of $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,R}\right]$ and coherence between $ M_R\left[\textit{R}\right]$ and $ M_R\left[\textit{C,R}\right]$ in order to detect different kind of misunderstandings (blue arrows).}
+\caption{\small The different goals of agents and their behaviours in the perspective of our framework. We present a generic example where the child learns by teaching a knowledge A, that could represent the allograph of a letter. In the case of the CoWriter activity, the goal is to copy and exaggerate the errors of the child in order to induce a ``prot\'eg\'e" effect (red arrow) and we expect that the child will find motivation to teach the robot if we successfully induce this effect (green arrow). The robot uses predictions of $ M_R\left[\textit{C}\right]$ and $ M_R\left[\textit{C,R}\right]$ and coherence between $ M_R\left[\textit{R}\right]$ and $ M_R\left[\textit{C,R}\right]$ in order to detect different kind of misunderstandings (blue arrows).}
 \label{mm}
 \end{figure} 
 
@@ -575,26 +583,36 @@ The deduced abstract variable is the understanding of the gesture by the child.
 
 \subsection{Perception}
 \label{ssec:perception}
-Sensitive modules measure values of relevant perceived variables. 
-While the agent's gaze direction and facial expression can be used in any interaction, some additive variables can be specific to the activity: in CoWriter, a module uses the tablet's input (demonstration of writing of the child) to compute the new state of robot's writing. The level of writing of the child and the robot are encoded as a perceived variables by the models of the robot and the child.
+Sensitive modules produce values of relevant perceived variables from various sensors. 
+While the agent's gaze direction and facial expression can be used in any interaction, some additive variables can be specific to the activity: in CoWriter, a module uses the tablet's input (demonstration of writing of the child) to compute the new state of robot's writing. The level of writing of the child and the robot are encoded as perceived variables by the models of the robot and the child.
 The evaluation of the robot by the child via the feedback buttons on the tablet defines another perceived variable provided by the modules of the activity. 
 Other modules can be independent of the activity: the system that tracks the VFoA of the child and estimates the with-me-ness provides additive information not directly used by the modules of the activity.  
 
 \subsection{Mutual models}
 \label{ssec:mmm}
-Each perceived value measured by the sensitive modules are associated with the model of an agent (or a $2^{th}$-order agent, like $M_R\left[CR\right]$). As an example, the VFoA of the child is associated to the model of the child, while the position of the head of the robot is a variable associated to the robot.
-The model of the robot $M_R\left[R\right]$ and the robot viewed by the child $M_R\left[CR\right]$ must contain the same variables in order to be comparable. But they are note governed by the same dynamic.
-A model encodes the values of perceived and abstract values and their dynamics. Also, the dynamic of variables from one model to another one must be encoded (an action of the robot has an impact on the behaviour of the child and an action of the child, like a feedback, as an impact on $M_R\left[CR\right]$). Different approaches can be use in order to encode this dynamic (bayesian, hebbian network, reinforcement learning, mixtures hebbian+reinforcement...). This dynamic is both used to establish predictions and to make decisions.
+Each perceived value produced by the sensitive modules are associated with the model of an agent (or a $2^{th}$-order agent, like $M_R\left[CR\right]$). As an example, the VFoA of the child is associated to the model of the child, while the position of the head of the robot is a variable associated to the robot.
+The model of the robot $M_R\left[R\right]$ and the robot viewed by the child $M_R\left[CR\right]$ must contain the same variables in order to be comparable. But they are not governed by the same dynamic.
+A model encodes the values of perceived and abstract variables and their dynamics. Also, the dynamic of variables from one model to another one must be encoded (an action of the robot has an impact on the behaviour of the child and an action of the child, like a feedback, has an impact on $M_R\left[CR\right]$). Different approaches can be use in order to encode this dynamic (bayesian, hebbian network, reinforcement learning, mixtures hebbian+reinforcement...). This dynamic is both used to establish predictions and to take decisions.
 
 \subsection{Decision making}
 \label{ssec:decision}
 
-As we said above, the robot has two goals. One being the maintenance of a mutual understanding, the second being the goal of the activity. In CoWriter, we want to build a ``prot\'eg\'e effect" in order to induce in the child an extrinsic motivation to practice handwriting. In that perspective, the behaviour of the robot is to pretend that its handwriting is so poor the child will be convinced he can and must help the robot. Then, in order to maintain this effect, the robot must adopt a convincing behaviour of a student, making progress thanks to the demonstrations of the child. 
+As we said above, the robot has two goals: one being the maintenance of a mutual understanding, the second being the goal of the activity. 
+In CoWriter, we want to build a ``prot\'eg\'e effect" in order to induce in the child an extrinsic motivation to practice handwriting. 
+In that perspective, the behaviour of the robot is to pretend that its handwriting is so poor that the child should be convinced he can and must help the robot. Then, in order to maintain this effect, the robot must adopt a convincing behaviour as a student, making progress thanks to the demonstrations of the child. 
 
-The only decision associated with the activity is to write, when it's its turn, a word with a handwriting style that will be convincing for the child. But the choice of this style and all other behaviour (robot's gaze direction, gestures, potential short speech) are made in order to maintain a mutual understanding. If the robot detects that it misunderstood the child (prediction error) it corrects the wrong dynamic of the models and, if it's important, it can tell the child about its mistake. If it detects that the child misunderstood the robot (child's perception error) it must repair the situation in order to be understood back. An idea to figure out the good action (or sequence of actions) that leads to help the child to understand could be to inverse the causality dynamic to find what actions cause the good knowledge (or mental state or action) in $M_R\left[CR\right]$. An example of such a process is the following: The robot uses a bad handwriting after a demonstration of the child. In $M_R\left[R\right]$, a variable representing the current level of handwriting takes a small value (0.1). Then, the child respond with a positive feedback. This positive feedback of the child leads to an higher value of the same variable in $M_R\left[CR\right]$ (0.7). As the difference between those variable is high (0.6), the robot wants to repair this miss understanding. The process will look for what leads to a small level of writing in $M_R\left[CR\right]$, that is a negative feedback of the child. Then, what leads to a negative feedback of the child is a very poor trial of writing of the robot and the fact that the child is looking at the tablet in the same time. Also, in order to conduce the child to look at the tablet, maybe the robot has to first look at the child waiting for an eyes-contact, then to look at the tablet. So the robot takes the decision to look at the child up to an eyes-contact, then to look at the tablet. If the child follows this gesture and also looks at the tablet, the robot start to write in a very bad style the same word (exaggerating the mistakes) and expect that this time the child will give a negative feedback.
+The only decision associated with the activity is to write with a handwriting style that will be convincing for the child. 
+But the choice of this style and all other behaviours (robot's gaze direction, gestures, potential short speech) are made in order to maintain a mutual understanding. 
+If the robot detects that it misunderstood the child (prediction error) it corrects the wrong dynamic of the models and, if it's important, it can tell the child about its mistake. 
+If it detects that the child misunderstood the robot (child's perception error) it must repair the situation in order to be understood. 
+An idea to figure out the good action (or sequence of actions) that leads to help the child to understand could be to inverse the causality dynamic to find what actions (or mental state) caused good understanding in $M_R\left[CR\right]$. 
+
+An example of such process is the following: The robot uses a bad handwriting after a demonstration of the child. 
+In $M_R\left[R\right]$, a variable representing the current level of handwriting takes a small value (0.1). Then, the child responds with a positive feedback. This positive feedback of the child leads to an higher value of the same variable in $M_R\left[CR\right]$ (0.7). As the difference between these variables is high (0.6), the robot wants to repair this misunderstanding. 
+The process will look for what led to a small level of writing in $M_R\left[CR\right]$, that is a negative feedback of the child. Then, what leads to a negative feedback of the child is a very poor trial of writing of the robot and the fact that the child is looking at the tablet in the same time. Also, in order to conduce the child to look at the tablet, maybe the robot has to first look at the child waiting for an eyes-contact, then to look at the tablet. So the robot takes the decision to look at the child in the eyes, and then to look at the tablet. If the child follows this gesture and also looks at the tablet, the robot starts to write in a very bad style the same word (exaggerating the mistakes) and expect that this time the child will give a negative feedback.
 
 Some decisions can have a high impact on the interaction: to stop an activity and to switch to a new one can frustrate a child that was committed. 
-The conditions to make such a decision are not directly assessable, but must be learned by the robot. In order to make these decision cautiously, we propose to start by a Wizard-of-Oz approach and to move towards an autonomous approach following these steps: 
+The conditions to make this decision are not directly assessable, but must be learned by the robot. In order to make these decisions cautiously, we propose to start with a Wizard-of-Oz approach and to move towards an autonomous approach following these steps: 
 \begin{enumerate}
 \item \textbf{Wizard-of-Oz}: A human takes decisions; the robot learns
 \item \textbf{Mixed-initiative}: The robot makes suggestions; a human agrees or disagrees
@@ -605,39 +623,42 @@ The conditions to make such a decision are not directly assessable, but must be 
 
 \subsection{ROS} % pas sur
 
-The architecture will be implemented using ROS to synchronize the activity of different parts of this architecture (written as ROS nodes). The perceived variables provided by sensitive modules and abstract variables provided by expected causalities will be published as messages on topics specific to the associated models. In the same way, decision taken will be sent as messages to the robot's control and tablets application in order to be realized. 
+The architecture will be implemented using ROS to synchronize the activity of the different parts of this architecture (written as ROS nodes). The perceived variables provided by sensitive modules and abstract variables provided by expected causalities will be published as messages on topics specific to the associated models. In the same way, decisions taken will be sent as messages to the robot's control and tablets application in order to be realized. 
 
 \subsection{Integration to CoWriter}
 
-The CoWriter activity is already implemented using ROS. The main nodes that measure values of relevant variables are the robot's state machine, the node that governs the algorithm to learn/generate letters and the interpreter of the tablet inputs. Variables are already published on other topics used by the activity. We will additionally publish them on the topics associated to the mutual modelling architecture. 
+The CoWriter activity is already implemented using ROS. The main nodes that provide values of relevant variables are the robot's state machine, the node that governs the algorithm to learn/generate letters and the interpreter of the tablet inputs. Variables are already published on other topics used for the dynamic of the activity. We will additionally publish them on the topics associated to the mutual modelling architecture. 
 
 \section{Evaluation}\label{eval}
 
 \subsection{Hypothesis}
 
-The question of this thesis concerns the improvement of human-robot interactions brought by mutual modelling, especially in the educational context of the CoWriter activity. In order to evaluate this improvement, we hypothesize the following assertion:\\
+The question of this thesis concerns the improvement of human-robot interaction brought by mutual modelling, especially in the educational context of the CoWriter activity. In order to evaluate this improvement, we hypothesize the following assertion:\\
 
 %\begin{itemize}
-\textit{- Decisions made using our architecture that tries to maintain a mutual understanding improve the quality of human-robot interactions.}\\
+\textit{- Decisions made via our architecture aiming to maintain mutual understanding, improve the quality of human-robot interaction.}\\
 %\end{itemize}
 
-As we will test and focus the application on the CoWriter project, we can develop this hypothesis in two sub-hypothesis:\\
+Regarding our applicative context, the CoWriter project, we can develop this hypothesis into the following two sub-hypothesis:\\
 
 %\begin{itemize}
-\textit{- Our architecture improve the interaction in CoWriter activity} (1).\\
+\textit{- Our architecture improves the interaction in the CoWriter activity} (1).\\
 \textit{- Our architecture is generalisable and can be adapted to other activities} (2).\\
 %\end{itemize}
 
 To study hypothesis (1), we need to rigorously define the \textit{quality of the interaction}.\\
 Since the goal is to promote extrinsic motivation by inducing a ``prot\'eg\'e" effect, we would like to measure the motivation of the child to play the activity and his satisfaction of the robot's progress. As we justified in section~\ref{not}, we will not (at least in a first time) look at the improvement of children self-esteem, that is a second goal of CoWriter. 
-
+%todo la phrase d'avant est pas clair. du coup quel sont tes mesures de quality of interaction? , il faut pointer vers la section d'apres
 Hypothesis (2) will be verified by designing different interactions, not necessary related to an educational context, that will be based on tasks that need 2nd order of modelling and mutual understanding in order to be solved.
-
+%todo donne un exmaple ou pointe vers un example
 \subsection{Experimental studies}
 
-In CoWriter, a measure of the quality of the interaction can be defined by a large amount of variable that provide cues about the commitment of the child (quantity of demonstrations, time spend to write demonstrations, quality/progress of demonstration, progress of the robot, \textit{with-me-ness} ...). The evaluation with feedback buttons can also be used to estimate how the child understands his role of teacher.
+In CoWriter, a measure of the quality of the interaction can be defined by several variables that provide cues about the commitment of the child (quantity of demonstrations, time spent to write demonstrations, quality/progress of demonstration, progress of the robot, \textit{with-me-ness} ...). The evaluation with feedback buttons can also be used to estimate how the child understands his role of teacher.
 
-Some experiment will be conduced in order to develop the architecture by testing it step by step. As an example, we will start with a small number of variables (perceived variables that are ready like the VFoA, children's feedback and level of writing) and a small set of actions (gaze direction, style of writing) and we will conduce experiment in order to figure out how to initialise the dynamics of those variables. Also, we will need to figure out how the robot must react when it exaggerate a bad handwriting. And we will progressively add new variables to take into account and new actions. Each time we will test and parametrize the new improvements with experiments. Such experiments requires high number of children but does not require long-term studies. They will be conduced in school as we did to setup and verify the with-me-ness in~\ref{with}.
+Some experiments will be conduced in order to develop the architecture and to test it step by step. 
+As an example, we will start with a small number of variables (perceived variables that are ready like the VFoA, children's feedback and level of writing) and a small set of actions (gaze direction, style of writing) and we will conduct experiments in order to understand how to initialise the dynamics of those variables. 
+Also, we will need to define how the robot should react when it exaggerates a bad handwriting. And we will progressively add new variables  and new actions to take into account. 
+Each time we will test and parametrize the new improvements with experiments. Such experiments requires high number of children but does not require long-term studies. They will be conduced in schools as we did to setup and verify the with-me-ness in~\ref{with}.
 
 When the architecture will be enough enriched with perceived/abstract variables and actions, we will figure out the possible improvement brought by the architecture and hence verify the hypothesis (1) via long-term studies. It will not necessary requires high number of children (may be 10 will be enough). One half of children will interact with the robot using mutual modelling reasoning and the other half (control group) will interact with the robot without mutual modelling (the current state of the activity). We will also verify the hypothesis (2) with group of children (or adults, depending on the activity) where only a half will interact with a mutual modelling robot. these last experiment will not requires long-term studies like with CoWriter, but maybe high number of subject will be required.
 
