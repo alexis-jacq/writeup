@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.12)  25 FEB 2016 23:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.12)  3 MAR 2016 22:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1130,34 +1130,34 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (16.45432pt too wide) in paragraph at lines 135--137
+Overfull \hbox (16.45432pt too wide) in paragraph at lines 140--142
 []\OT1/cmr/m/n/10 Mutual mod-elling has also been stud-ied through ed-u-ca-tion
 al con-texts. Roschelle and Teasley [[]]
  []
 
-<figs/realSetup.png, id=164, 1571.8725pt x 926.46124pt>
+[3] <figs/realSetup.png, id=188, 1571.8725pt x 926.46124pt>
 File: figs/realSetup.png Graphic file (type png)
 
 <use figs/realSetup.png>
-Package pdftex.def Info: figs/realSetup.png used on input line 166.
+Package pdftex.def Info: figs/realSetup.png used on input line 177.
 (pdftex.def)             Requested size: 247.54149pt x 145.89014pt.
- [3] [4 <./figs/realSetup.png>]
+ [4 <./figs/realSetup.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 221.
+               Default added (so using `!tbp') on input line 240.
 
-[5] <figs/diego-initial-letter.pdf, id=213, 323.55695pt x 177.64095pt>
+[5] <figs/diego-initial-letter.pdf, id=217, 323.55695pt x 177.64095pt>
 File: figs/diego-initial-letter.pdf Graphic file (type pdf)
 
 <use figs/diego-initial-letter.pdf>
-Package pdftex.def Info: figs/diego-initial-letter.pdf used on input line 243.
+Package pdftex.def Info: figs/diego-initial-letter.pdf used on input line 261.
 (pdftex.def)             Requested size: 155.47836pt x 85.35826pt.
 
-<figs/diego-final-letter.pdf, id=214, 327.9354pt x 182.19574pt>
+<figs/diego-final-letter.pdf, id=218, 327.9354pt x 182.19574pt>
 File: figs/diego-final-letter.pdf Graphic file (type pdf)
 
 <use figs/diego-final-letter.pdf>
-Package pdftex.def Info: figs/diego-final-letter.pdf used on input line 246.
+Package pdftex.def Info: figs/diego-final-letter.pdf used on input line 264.
 (pdftex.def)             Requested size: 153.63927pt x 85.35826pt.
  [6 <./figs/diego-initial-letter.pdf> <./figs/diego-final-letter.pdf
 
@@ -1166,97 +1166,133 @@ ultiple pdfs with page group included in a single page
 >]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 280.
+               Default added (so using `!tbp') on input line 298.
 
-<figs/learning_6_demos.pdf, id=235, 769.20001pt x 162.58821pt>
+<figs/learning_6_demos.pdf, id=239, 769.20001pt x 162.58821pt>
 File: figs/learning_6_demos.pdf Graphic file (type pdf)
 
 <use figs/learning_6_demos.pdf>
-Package pdftex.def Info: figs/learning_6_demos.pdf used on input line 282.
+Package pdftex.def Info: figs/learning_6_demos.pdf used on input line 300.
 (pdftex.def)             Requested size: 247.54149pt x 52.32202pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 297.
+               Default added (so using `!tbp') on input line 315.
 
-<figs/henry2.pdf, id=236, 532.03111pt x 399.45853pt>
+<figs/henry2.pdf, id=240, 532.03111pt x 399.45853pt>
 File: figs/henry2.pdf Graphic file (type pdf)
  <use figs/henry2.pdf>
-Package pdftex.def Info: figs/henry2.pdf used on input line 301.
+Package pdftex.def Info: figs/henry2.pdf used on input line 319.
 (pdftex.def)             Requested size: 142.26378pt x 106.81294pt.
 
-<figs/henry5.pdf, id=237, 532.03111pt x 399.45853pt>
+<figs/henry5.pdf, id=241, 532.03111pt x 399.45853pt>
 File: figs/henry5.pdf Graphic file (type pdf)
  <use figs/henry5.pdf>
-Package pdftex.def Info: figs/henry5.pdf used on input line 304.
+Package pdftex.def Info: figs/henry5.pdf used on input line 322.
 (pdftex.def)             Requested size: 142.26378pt x 106.81294pt.
 
-[7 <./figs/learning_6_demos.pdf> <./figs/henry2.pdf
-
-pdfTeX warning: pdflatex (file ./figs/henry2.pdf): PDF inclusion: multiple pdfs
- with page group included in a single page
-> <./figs/henry5.pdf
-
-pdfTeX warning: pdflatex (file ./figs/henry5.pdf): PDF inclusion: multiple pdfs
- with page group included in a single page
->]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 325.
+               Default added (so using `!tbp') on input line 343.
 
-<figs/learning_6_distances.pdf, id=325, 715.09702pt x 302.85414pt>
+<figs/learning_6_distances.pdf, id=244, 715.09702pt x 302.85414pt>
 File: figs/learning_6_distances.pdf Graphic file (type pdf)
 
 <use figs/learning_6_distances.pdf>
-Package pdftex.def Info: figs/learning_6_distances.pdf used on input line 327.
+Package pdftex.def Info: figs/learning_6_distances.pdf used on input line 345.
 (pdftex.def)             Requested size: 206.28249pt x 87.36333pt.
- [8 <./figs/learning_6_distances.pdf>]
-[9] [10] <figs/with-me-ness.pdf, id=408, 1339.60117pt x 389.1065pt>
+ [7 <./figs/learning_6_demos.pdf>] [8 <./figs/henry2.pdf> <./figs/henry5.pdf
+
+pdfTeX warning: pdflatex (file ./figs/henry5.pdf): PDF inclusion: multiple pdfs
+ with page group included in a single page
+> <./figs/learning_6_distances.pdf
+
+pdfTeX warning: pdflatex (file ./figs/learning_6_distances.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>] [9] [10] [11] <figs/with-me-ness.pdf, id=422, 1339.60117pt x 389.1065pt>
 File: figs/with-me-ness.pdf Graphic file (type pdf)
 
 <use figs/with-me-ness.pdf>
-Package pdftex.def Info: figs/with-me-ness.pdf used on input line 487.
+Package pdftex.def Info: figs/with-me-ness.pdf used on input line 513.
 (pdftex.def)             Requested size: 412.56497pt x 119.8321pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 504.
 
+Overfull \hbox (4.60287pt too wide) in paragraph at lines 535--535
+[]\OT1/cmr/m/n/10 Subject| 
+ []
+
+
+Overfull \hbox (7.83228pt too wide) in paragraph at lines 537--537
+[]$\OMS/cmsy/m/n/10 W[]$| 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 547.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 504.
- [11 <./figs/with-me-ness.pdf>] [12] [13]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 547.
+ [12 <./figs/with-me-ness.pdf>] [13]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 559.
+               Default added (so using `!tbp') on input line 586.
 
-<figs/mutual_behaviour.pdf, id=463, 629.80988pt x 481.48146pt>
+<figs/archi_general.pdf, id=465, 544.98123pt x 367.34148pt>
+File: figs/archi_general.pdf Graphic file (type pdf)
+
+<use figs/archi_general.pdf>
+Package pdftex.def Info: figs/archi_general.pdf used on input line 588.
+(pdftex.def)             Requested size: 247.54149pt x 166.85477pt.
+ [14 <./figs/archi_general.pdf>] [15] [16]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 694.
+
+<figs/mutual_behaviour.pdf, id=508, 629.80988pt x 481.48146pt>
 File: figs/mutual_behaviour.pdf Graphic file (type pdf)
 
 <use figs/mutual_behaviour.pdf>
-Package pdftex.def Info: figs/mutual_behaviour.pdf used on input line 561.
+Package pdftex.def Info: figs/mutual_behaviour.pdf used on input line 696.
 (pdftex.def)             Requested size: 247.54149pt x 189.23903pt.
- [14] [15 <./figs/mutual_behaviour.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 610--611
+ [17 <./figs/mutual_behaviour.pdf>] [18]
+[19]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 785.
+
+<figs/final_archi.pdf, id=549, 715.3249pt x 398.37471pt>
+File: figs/final_archi.pdf Graphic file (type pdf)
+
+<use figs/final_archi.pdf>
+Package pdftex.def Info: figs/final_archi.pdf used on input line 787.
+(pdftex.def)             Requested size: 412.56497pt x 229.76273pt.
+ [20 <./figs/final_archi.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 803--804
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--615
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 616--617
+Underfull \hbox (badness 10000) in paragraph at lines 806--809
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--622
+Underfull \hbox (badness 10000) in paragraph at lines 806--809
 
  []
 
-[17] (./write_up.bbl [18])
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--814
+
+ []
+
+[21] <figs/gantt.pdf, id=573, 735.65373pt x 156.61885pt>
+File: figs/gantt.pdf Graphic file (type pdf)
+ <use figs/gantt.pdf>
+Package pdftex.def Info: figs/gantt.pdf used on input line 836.
+(pdftex.def)             Requested size: 412.56497pt x 87.83499pt.
+
+(./write_up.bbl [22 <./figs/gantt.pdf>] [23])
 
 FiXme Summary: Number of notes: 0,
 (FiXme)        Number of warnings: 0,
@@ -1264,28 +1300,24 @@ FiXme Summary: Number of notes: 0,
 (FiXme)        Number of fatal errors: 0,
 (FiXme)        Total: 0.
 
-[19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 644.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 644.
+[24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 846.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 846.
  (./write_up.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 644.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 644.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 846.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 846.
 Package rerunfilecheck Info: File `write_up.out' has not changed.
-(rerunfilecheck)             Checksum: 3BF0FEDE16BFA6A99C448F8B0FDFBE1A;1697.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 644.
+(rerunfilecheck)             Checksum: C4D3723DF9B632FB34BB3F9F09E8EDEB;1691.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 846.
  ) 
 Here is how much of TeX's memory you used:
- 21678 strings out of 493085
- 399181 string characters out of 6136917
- 497842 words of memory out of 5000000
- 24613 multiletter control sequences out of 15000+600000
+ 21716 strings out of 493085
+ 399776 string characters out of 6136917
+ 505069 words of memory out of 5000000
+ 24635 multiletter control sequences out of 15000+600000
  18629 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,75p,2180b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,75p,1486b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -1293,30 +1325,31 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on write_up.pdf (19 pages, 3366316 bytes).
+1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on write_up.pdf (24 pages, 3431777 bytes).
 PDF statistics:
- 639 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 118 named destinations out of 1000 (max. 500000)
- 258 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 729 PDF objects out of 1000 (max. 8388607)
+ 596 compressed objects within 6 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 273 words of extra memory for PDF output out of 10000 (max. 10000000)
 
